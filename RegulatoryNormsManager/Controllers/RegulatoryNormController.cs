@@ -1,16 +1,21 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using SIGO.RegulatoryNorms.DataContracts;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
-namespace RegulatoryNormsManager.Controllers
+namespace SIGO.RegulatoryNorms.API.Controllers
 {
+    [ApiController]
+    [Route("RegulatoryNorms")]
     public class RegulatoryNormController : Controller
     {
-        public IActionResult Index()
+        [HttpGet]
+        public IEnumerable<RegulatoryNorm> Get()
         {
-            return View();
+            return new List<RegulatoryNorm>() 
+            {
+                new RegulatoryNorm() { Code = "0001", Description = "Norma de segurança de trabalho" },
+                new RegulatoryNorm() { Code = "0002", Description = "Norma de segurança ambiental" }
+            };
         }
     }
 }

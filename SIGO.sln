@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegulatoryNormsManager", "RegulatoryNormsManager\RegulatoryNormsManager.csproj", "{45602DD4-15B6-4D12-932F-8949FAE256FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.RegulatoryNorms.API", "RegulatoryNormsManager\SIGO.RegulatoryNorms.API.csproj", "{45602DD4-15B6-4D12-932F-8949FAE256FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Regulatory Norms Module", "01 - Regulatory Norms Module", "{4C08027C-3CA8-42F3-8852-A3A43602926A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.RegulatoryNorms.Domain", "SIGO.RegulatoryNorms.Domain\SIGO.RegulatoryNorms.Domain.csproj", "{D9FA9C01-8F30-42C8-88D5-5A9E152E5F41}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.RegulatoryNorms.DataContracts", "SIGO.RegulatoryNorms.DataContract\SIGO.RegulatoryNorms.DataContracts.csproj", "{FDA8AAC3-05E8-4069-B3EA-1E36FB19C6D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.RegulatoryNorms.Application.Services", "SIGO.RegulatoryNorms.Application.Services\SIGO.RegulatoryNorms.Application.Services.csproj", "{E82C2D80-EF90-40CC-AE55-3C32180D88D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.RegulatoryNorms.Infrastructure.Persistence", "SIGO.RegulatoryNorms.Infrastructure.Persistence\SIGO.RegulatoryNorms.Infrastructure.Persistence.csproj", "{3287F091-D323-40C0-807D-C61F69CA5EA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +25,32 @@ Global
 		{45602DD4-15B6-4D12-932F-8949FAE256FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45602DD4-15B6-4D12-932F-8949FAE256FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45602DD4-15B6-4D12-932F-8949FAE256FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9FA9C01-8F30-42C8-88D5-5A9E152E5F41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9FA9C01-8F30-42C8-88D5-5A9E152E5F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9FA9C01-8F30-42C8-88D5-5A9E152E5F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9FA9C01-8F30-42C8-88D5-5A9E152E5F41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA8AAC3-05E8-4069-B3EA-1E36FB19C6D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA8AAC3-05E8-4069-B3EA-1E36FB19C6D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA8AAC3-05E8-4069-B3EA-1E36FB19C6D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA8AAC3-05E8-4069-B3EA-1E36FB19C6D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E82C2D80-EF90-40CC-AE55-3C32180D88D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E82C2D80-EF90-40CC-AE55-3C32180D88D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E82C2D80-EF90-40CC-AE55-3C32180D88D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E82C2D80-EF90-40CC-AE55-3C32180D88D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3287F091-D323-40C0-807D-C61F69CA5EA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3287F091-D323-40C0-807D-C61F69CA5EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3287F091-D323-40C0-807D-C61F69CA5EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3287F091-D323-40C0-807D-C61F69CA5EA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{45602DD4-15B6-4D12-932F-8949FAE256FA} = {4C08027C-3CA8-42F3-8852-A3A43602926A}
+		{D9FA9C01-8F30-42C8-88D5-5A9E152E5F41} = {4C08027C-3CA8-42F3-8852-A3A43602926A}
+		{FDA8AAC3-05E8-4069-B3EA-1E36FB19C6D1} = {4C08027C-3CA8-42F3-8852-A3A43602926A}
+		{E82C2D80-EF90-40CC-AE55-3C32180D88D1} = {4C08027C-3CA8-42F3-8852-A3A43602926A}
+		{3287F091-D323-40C0-807D-C61F69CA5EA0} = {4C08027C-3CA8-42F3-8852-A3A43602926A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72F0222E-4A76-42E0-AABA-748DD2E57477}

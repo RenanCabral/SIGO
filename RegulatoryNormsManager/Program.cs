@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace RegulatoryNormsManager
+namespace SIGO.RegulatoryNorms.API
 {
     public class Program
     {
