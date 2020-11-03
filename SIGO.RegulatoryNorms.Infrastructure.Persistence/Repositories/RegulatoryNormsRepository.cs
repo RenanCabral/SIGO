@@ -1,12 +1,13 @@
 ﻿using Dapper;
 using SIGO.RegulatoryNorms.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
 {
-    public class RegulatoryNormsRepository : BaseRepository
+    public class RegulatoryNormsRepository : BaseRepository, IRegulatoryNormsRepository, IDisposable
     {
         public RegulatoryNormsRepository(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
@@ -17,6 +18,11 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
             var regulatoryNorms = await this.UnitOfWork.DbConnector.Connection.QueryAsync<RegulatoryNorm>(sql);
 
             return regulatoryNorms.ToList();
+        }
+
+        public void Dispose()
+        {
+            base.UnitOfWork.Dispose();
         }
     }
 }

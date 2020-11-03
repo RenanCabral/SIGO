@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SIGO.RegulatoryNorms.Application.Services;
+using SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories;
 
 namespace SIGO.RegulatoryNorms.API
 {
@@ -26,6 +28,7 @@ namespace SIGO.RegulatoryNorms.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            ConfigureIoC(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +49,12 @@ namespace SIGO.RegulatoryNorms.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static void ConfigureIoC(IServiceCollection services)
+        {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IRegulatoryNormsService, RegulatoryNormsService>();
         }
     }
 }

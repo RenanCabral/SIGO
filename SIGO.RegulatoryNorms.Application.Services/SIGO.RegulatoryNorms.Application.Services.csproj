@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SIGO.RegulatoryNorms.DataContract\SIGO.RegulatoryNorms.DataContracts.csproj" />
+    <ProjectReference Include="..\SIGO.RegulatoryNorms.Infrastructure.Persistence\SIGO.RegulatoryNorms.Infrastructure.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

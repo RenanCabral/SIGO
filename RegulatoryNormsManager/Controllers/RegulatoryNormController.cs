@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SIGO.RegulatoryNorms.Application.Services;
 using SIGO.RegulatoryNorms.DataContracts;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SIGO.RegulatoryNorms.API.Controllers
 {
@@ -8,14 +11,28 @@ namespace SIGO.RegulatoryNorms.API.Controllers
     [Route("RegulatoryNorms")]
     public class RegulatoryNormController : Controller
     {
-        [HttpGet]
-        public IEnumerable<RegulatoryNorm> Get()
+
+        public RegulatoryNormController(IRegulatoryNormsService regulatoryNormsService)
         {
-            return new List<RegulatoryNorm>() 
+            this.regulatoryNormsService = regulatoryNormsService ?? throw new ArgumentNullException(nameof(regulatoryNormsService));
+        }
+
+        private readonly IRegulatoryNormsService regulatoryNormsService;
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync()
+        {
+            try
             {
-                new RegulatoryNorm() { Code = "0001", Description = "Norma de segurança de trabalho" },
-                new RegulatoryNorm() { Code = "0002", Description = "Norma de segurança ambiental" }
-            };
+                List<RegulatoryNorm> response = await regulatoryNormsService.GetAllAsync();
+
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+
+            }
         }
     }
 }

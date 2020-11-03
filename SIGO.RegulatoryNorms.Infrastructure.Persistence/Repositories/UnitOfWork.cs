@@ -1,4 +1,5 @@
-﻿using SIGO.RegulatoryNorms.Infrastructure.Persistence.Infrastructure;
+﻿using SIGO.RegulatoryNorms.Infrastructure.CrossCutting;
+using SIGO.RegulatoryNorms.Infrastructure.Persistence.Infrastructure;
 
 namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
 {
@@ -6,9 +7,8 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
     {
         #region Constructors
 
-        public UnitOfWork(IDbConnector dbConnector)
-        {
-            this._dbConnector = dbConnector;
+        public UnitOfWork()
+        {   
         }
 
         #endregion
@@ -22,7 +22,7 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
             {
                 if (_dbConnector == null)
                 {
-                    _dbConnector = new DapperDbConnector("SIGO");
+                    _dbConnector = new DapperDbConnector(AppConfiguration.ConnectionString);
                     _dbConnector.Initialize();
                 }
 
