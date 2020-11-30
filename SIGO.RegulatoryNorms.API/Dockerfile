@@ -10,16 +10,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1.100 AS build
 WORKDIR /src
-COPY ["RegulatoryNormsManager/RegulatoryNormsManager.csproj", "RegulatoryNormsManager/"]
-RUN dotnet restore "RegulatoryNormsManager/RegulatoryNormsManager.csproj"
+COPY ["SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj", "SIGO.RegulatoryNorms.API/"]
+RUN dotnet restore "SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj"
 COPY . .
-WORKDIR "/src/RegulatoryNormsManager"
-RUN dotnet build "RegulatoryNormsManager.csproj" -c Release -o /app/build
+WORKDIR "/src/SIGO.RegulatoryNorms.API"
+RUN dotnet build "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "RegulatoryNormsManager.csproj" -c Release -o /app/publish
+RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "RegulatoryNormsManager.dll"]
+ENTRYPOINT ["dotnet", "SIGO.RegulatoryNorms.API.dll"]
