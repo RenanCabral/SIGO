@@ -11,7 +11,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1.100 AS build
 WORKDIR /src
 COPY ["SIGO.RegulatoryNorms.API.csproj", "SIGO.RegulatoryNorms.API/"]
-COPY ["../SIGO.RegulatoryNorms.Application.Services/", "SIGO.RegulatoryNorms.Application.Services/"]
+COPY ["SIGO/SIGO.RegulatoryNorms.Application.Services/", "SIGO.RegulatoryNorms.Application.Services/"]
 
 RUN dotnet restore "SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj"
 COPY . .
