@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: '1447e29f-4f06-4306-8613-279bdce4281c'
   imageRepository: 'sigo'
   containerRegistry: 'sigocontainerregistry.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/SIGO.RegulatoryNorms.API/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   
   # Agent VM image name
