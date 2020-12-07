@@ -12,7 +12,7 @@ namespace SIGO.RegulatoryNorms.API.Controllers
     public class RegulatoryNormController : Controller
     {
 
-        public RegulatoryNormController(IRegulatoryNormsService regulatoryNormsService)
+        public RegulatoryNormController(IRegulatoryNormsService regulatoryNormsService, IExternalRegulatoryNormsService externalRegulatoryNormsService)
         {
             this.regulatoryNormsService = regulatoryNormsService ?? throw new ArgumentNullException(nameof(regulatoryNormsService));
         }
@@ -21,6 +21,22 @@ namespace SIGO.RegulatoryNorms.API.Controllers
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
+        {
+            try
+            {
+                List<RegulatoryNorm> response = await regulatoryNormsService.GetAllAsync();
+
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CheckRegulatoryNormsUpdateAsync()
         {
             try
             {
