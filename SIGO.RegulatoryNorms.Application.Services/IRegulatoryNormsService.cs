@@ -6,5 +6,6 @@ namespace SIGO.RegulatoryNorms.Application.Services
     public interface IRegulatoryNormsService
     {
         Task<List<DataContracts.RegulatoryNorm>> GetAllAsync();
+        Task<List<DataContracts.RegulatoryNormUpdate>> CheckRegulatoryNormsUpdateAsync();
     }
 }

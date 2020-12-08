@@ -1,11 +1,12 @@
-﻿using System;
+﻿using SIGO.RegulatoryNorms.DataContracts;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace SIGO.RegulatoryNorms.Application.Services.External
 {
-	public class ExternalRegulatoryNormsClient
-    {
+	public class ExternalRegulatoryNormsClient : IExternalRegulatoryNormsClient
+	{
         HttpClient client;
         const string baseUri = "http://regulatorynorms/";
 
@@ -15,12 +16,13 @@ namespace SIGO.RegulatoryNorms.Application.Services.External
             client.BaseAddress = new Uri(baseUri);
         }
 
-        public async Task<HttpResponseMessage> GetNormsAsync()
+        public async Task<HttpResponseMessage> GetNormsAsync(RegulatoryNormCategory category)
         {
             HttpResponseMessage response = new HttpResponseMessage();
-
+			
 			// TODO: fake content for testing proporses
             response.Content = new StringContent(GetFakeRegulatoryNormsResponse());
+			response.StatusCode = System.Net.HttpStatusCode.OK;
 
 			// TODO: uncomment this line in case of real usage of external norms api
             //response = await client.GetAsync("GetNorms");
@@ -30,8 +32,7 @@ namespace SIGO.RegulatoryNorms.Application.Services.External
 
         private string GetFakeRegulatoryNormsResponse()
         {
-			return @"{
-						[
+			return @" [
 							{
 								'Code': '0001',
 								'Description': 'A seguinte norma regulatória na área de segurança do trabalho, determina que os funcionários estejam com uso obrigatório de EPis.',
@@ -53,8 +54,7 @@ namespace SIGO.RegulatoryNorms.Application.Services.External
 								'DueDate': '01/10/2021',
 								'Category': 'Environmental'
 							}
-						]
-					}";
+						]";
         }
     }
 }

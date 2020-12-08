@@ -1,28 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using SIGO.RegulatoryNorms.Application.Services.External;
+using SIGO.RegulatoryNorms.DataContracts;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SIGO.RegulatoryNorms.Application.Services
 {
     public class ExternalRegulatoryNormsService : IExternalRegulatoryNormsService
     {
-        public ExternalRegulatoryNormsService(IRegulatoryNormsService regulatoryNormsService)
+
+        private IExternalRegulatoryNormsClient _externalRegulatoryNormsClient;
+
+        public ExternalRegulatoryNormsService(IExternalRegulatoryNormsClient client)
         {
-           // this._regulatoryNormsService = regulatoryNormsService;
+            this._externalRegulatoryNormsClient = client;
         }
 
-        public async Task<List<DataContracts.RegulatoryNormUpdate>> CheckRegulatoryNormsUpdateAsync()
+        public async Task<List<RegulatoryNormUpdate>> GetRegulatoryNormsAsync(RegulatoryNormCategory category)
         {
-            // logic to read external norms base
-           // using (externalRegulatoryNormsClient)
-           // {
-                // it is expected that a few updated norms are returned here;
-                //var regulatoryNorms = externalRegulatoryNormsClient.GetRegulatoryNorms(filter);
+            var httpResponseMessage = await _externalRegulatoryNormsClient.GetNormsAsync(category);
 
-                // TODO: check logic of database initial population
-                // TODO: implement a comparer to check norms diff
-            //}
+            var jsonResponse = await httpResponseMessage.Content.ReadAsStringAsync();
 
-            return null;
+            var regulatoryNormsList = JsonConvert.DeserializeObject<List<RegulatoryNormUpdate>>(jsonResponse.Trim());
+
+            return regulatoryNormsList;
         }
     }
 }

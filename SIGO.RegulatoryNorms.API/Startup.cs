@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SIGO.RegulatoryNorms.Application.Services;
+using SIGO.RegulatoryNorms.Application.Services.External;
 using SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories;
 
 namespace SIGO.RegulatoryNorms.API
@@ -54,6 +55,8 @@ namespace SIGO.RegulatoryNorms.API
         private static void ConfigureIoC(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IExternalRegulatoryNormsService, ExternalRegulatoryNormsService>();
+            services.AddScoped<IExternalRegulatoryNormsClient, ExternalRegulatoryNormsClient>();
             services.AddScoped<IRegulatoryNormsService, RegulatoryNormsService>();
         }
     }

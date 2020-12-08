@@ -20,6 +20,7 @@ namespace SIGO.RegulatoryNorms.API.Controllers
         private readonly IRegulatoryNormsService regulatoryNormsService;
 
         [HttpGet]
+        [Route("GetAll")]
         public async Task<IActionResult> GetAllAsync()
         {
             try
@@ -36,11 +37,12 @@ namespace SIGO.RegulatoryNorms.API.Controllers
         }
 
         [HttpGet]
+        [Route("CheckRegulatoryNormsUpdate")]
         public async Task<IActionResult> CheckRegulatoryNormsUpdateAsync()
         {
             try
             {
-                List<RegulatoryNorm> response = await regulatoryNormsService.GetAllAsync();
+                List<RegulatoryNormUpdate> response = await regulatoryNormsService.CheckRegulatoryNormsUpdateAsync();
 
                 return Ok(response);
             }

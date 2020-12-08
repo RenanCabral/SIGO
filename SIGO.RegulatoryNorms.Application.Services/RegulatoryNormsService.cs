@@ -9,14 +9,17 @@ namespace SIGO.RegulatoryNorms.Application.Services
 {
     public class RegulatoryNormsService : IRegulatoryNormsService
     {
-        public RegulatoryNormsService(IUnitOfWork unitOfWork)
+        public RegulatoryNormsService(IUnitOfWork unitOfWork, IExternalRegulatoryNormsService externalRegulatoryNormsService)
         {
             this._regulatoryNormsRepository = new RegulatoryNormsRepository(unitOfWork);
+            this._externalRegulatoryNormsService = externalRegulatoryNormsService;
         }
 
         #region Fields
 
         private readonly IRegulatoryNormsRepository _regulatoryNormsRepository;
+        private readonly IExternalRegulatoryNormsService _externalRegulatoryNormsService;
+
 
         #endregion
 
@@ -31,6 +34,23 @@ namespace SIGO.RegulatoryNorms.Application.Services
                 return RegulatoryNormsMapper.MapModelToContract(regulatoryNorms).ToList();
             }
         }
+
+        public async Task<List<DataContracts.RegulatoryNormUpdate>> CheckRegulatoryNormsUpdateAsync()
+        {
+            //TODO: implement dispose on externalRegulatoryNormsService
+
+            // logic to read external norms base
+            var regulatoryNorms = await _externalRegulatoryNormsService.GetRegulatoryNormsAsync(DataContracts.RegulatoryNormCategory.WorkSafety);
+
+          
+            // TODO: check logic of database initial population
+            // TODO: implement a comparer to check norms diff
+
+
+            return regulatoryNorms;
+        }
+
+
 
         #endregion
     }
