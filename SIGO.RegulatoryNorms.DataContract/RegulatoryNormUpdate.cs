@@ -11,5 +11,7 @@
         public string DueDate { get; set; }
 
         public string Category { get; set; }
+
+        public bool Updated { get; set; }
     }
 }

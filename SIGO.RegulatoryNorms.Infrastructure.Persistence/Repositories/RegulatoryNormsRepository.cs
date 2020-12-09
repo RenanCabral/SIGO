@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using SIGO.RegulatoryNorms.Domain.Entities;
+using SIGO.RegulatoryNorms.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,49 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
             var regulatoryNorms = await this.UnitOfWork.DbConnector.Connection.QueryAsync<RegulatoryNorm>(sql);
 
             return regulatoryNorms.ToList();
+        }
+
+        public async Task<RegulatoryNorm> GetByCodeAsync(string code)
+        {
+            var sql = @" SELECT * FROM [dbo].[RegulatoryNorms] WHERE Code = @code AND Active = 1";
+
+            var param = new { code };
+
+            var regulatoryNorm = await this.UnitOfWork.DbConnector.Connection.QueryFirstOrDefaultAsync<RegulatoryNorm>(sql, param);
+
+            return regulatoryNorm;
+        }
+
+        public async Task InsertAsync(RegulatoryNorm regulatoryNorm)
+        {
+            var sql = @" INSERT INTO [dbo].[RegulatoryNorms] (Code, Description, Active, CategoryId) VALUES (@code, @description, @active, @categoryId)";
+
+            var param = new
+            {
+                code = regulatoryNorm.Code,
+                description = regulatoryNorm.Description,
+                active = true,
+                categoryId = RegulatoryNormCategory.WorkSafety
+            };
+
+            await this.UnitOfWork.DbConnector.Connection.ExecuteAsync(sql, param);
+        }
+
+        public async Task UpdateAsync(RegulatoryNorm regulatoryNorm)
+        {
+            var sql = @" UPDATE [dbo].[RegulatoryNorms] 
+                       SET Description = @description,
+                           UpdateDate = @updateDate 
+                       WHERE Code = @code";
+
+            var param = new
+            {
+                code = regulatoryNorm.Code,
+                description = regulatoryNorm.Description,
+                updateDate = DateTime.UtcNow
+            };
+
+            await this.UnitOfWork.DbConnector.Connection.ExecuteAsync(sql, param);
         }
 
         public void Dispose()

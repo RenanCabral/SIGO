@@ -49,7 +49,7 @@ namespace SIGO.RegulatoryNorms.Application.Services.External
 							},
 							{
 								'Code': '0003',
-								'Description': 'A seguinte norma regulatória na ambiental, determina que o descarte de resíduos seja  ....',
+								'Description': 'A seguinte norma regulatória na ambiental, determina que o descarte de resíduos seja feito através de descarte seletivo',
 								'ReleaseDate': '01/02/2021',
 								'DueDate': '01/10/2021',
 								'Category': 'Environmental'

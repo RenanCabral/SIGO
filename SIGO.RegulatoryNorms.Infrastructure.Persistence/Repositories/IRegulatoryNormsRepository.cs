@@ -9,5 +9,10 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
     public interface IRegulatoryNormsRepository : IDisposable
     {
         Task<List<RegulatoryNorm>> GetAllAsync();
+        Task<RegulatoryNorm> GetByCodeAsync(string code);
+
+        Task InsertAsync(RegulatoryNorm regulatoryNorm);
+
+        Task UpdateAsync(RegulatoryNorm regulatoryNorm);
     }
 }

@@ -39,17 +39,53 @@ namespace SIGO.RegulatoryNorms.Application.Services
         {
             //TODO: implement dispose on externalRegulatoryNormsService
 
-            // logic to read external norms base
+            // read external norms base
             var regulatoryNorms = await _externalRegulatoryNormsService.GetRegulatoryNormsAsync(DataContracts.RegulatoryNormCategory.WorkSafety);
 
-          
+            using (_regulatoryNormsRepository)
+            {
+                foreach (var regulatoryNorm in regulatoryNorms)
+                {
+
+                    // get the regulatory norm from database
+                    var storedRegulatoryNorm = await _regulatoryNormsRepository.GetByCodeAsync(regulatoryNorm.Code);
+
+                    if (storedRegulatoryNorm != null)
+                    {
+                        // updates regulatory norms in database
+                        if (storedRegulatoryNorm.Description != regulatoryNorm.Description)
+                        {
+                            storedRegulatoryNorm.Description = regulatoryNorm.Description;
+                            await _regulatoryNormsRepository.UpdateAsync(storedRegulatoryNorm);
+
+                            regulatoryNorm.Updated = true;
+                        }
+                    }
+                    else
+                    {
+                        // inserts new regulatory norms in database
+
+                        // TODO: call mapper method here
+                        var newRegulatoryNorm = new RegulatoryNorm()
+                        {
+                            Code = regulatoryNorm.Code,
+                            Description = regulatoryNorm.Description
+                        };
+                        await _regulatoryNormsRepository.InsertAsync(newRegulatoryNorm);
+                    }
+                }
+            }
+
             // TODO: check logic of database initial population
             // TODO: implement a comparer to check norms diff
-
 
             return regulatoryNorms;
         }
 
+        private bool IsRegulatoryNormUpdated()
+        {
+            return false;
+        }
 
 
         #endregion
