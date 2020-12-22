@@ -19,15 +19,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.RegulatoryNorms.Infras
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Industrial Module", "02 - Industrial Module", "{5B48DDD5-6064-4B96-96C7-546A29B72A2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.IndustrialProcess.QueueConsumer", "SIGO.IndustrialProcess.QueueConsumer\SIGO.IndustrialProcess.QueueConsumer.csproj", "{24C46097-D704-4447-9951-92851DC3ABBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.IndustrialProcess.QueueConsumer", "SIGO.IndustrialProcess.QueueConsumer\SIGO.IndustrialProcess.QueueConsumer.csproj", "{24C46097-D704-4447-9951-92851DC3ABBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.IndustrialProcess.API", "SIGO.IndustrialProcess.API\SIGO.IndustrialProcess.API.csproj", "{B9CFFDCA-8D43-4EA7-8824-3792FB664A73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.IndustrialProcess.API", "SIGO.IndustrialProcess.API\SIGO.IndustrialProcess.API.csproj", "{B9CFFDCA-8D43-4EA7-8824-3792FB664A73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Consulting Module", "03 - Consulting Module", "{CF0BCC12-50FF-4196-8F1E-565F17ED7006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Consulting.API", "SIGO.Consulting.API\SIGO.Consulting.API.csproj", "{C793130B-6B8B-4213-BAC8-9EF877151006}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Consulting.API", "SIGO.Consulting.API\SIGO.Consulting.API.csproj", "{C793130B-6B8B-4213-BAC8-9EF877151006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Consulting.QueueConsumer", "SIGO.Consulting.QueueConsumer\SIGO.Consulting.QueueConsumer.csproj", "{31F8370D-54ED-4AB5-917A-F655FC6975F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Consulting.QueueConsumer", "SIGO.Consulting.QueueConsumer\SIGO.Consulting.QueueConsumer.csproj", "{31F8370D-54ED-4AB5-917A-F655FC6975F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.IndustrialProcess.Application.Services", "SIGO.IndustrialProcess.Application.Services\SIGO.IndustrialProcess.Application.Services.csproj", "{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{31F8370D-54ED-4AB5-917A-F655FC6975F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31F8370D-54ED-4AB5-917A-F655FC6975F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31F8370D-54ED-4AB5-917A-F655FC6975F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{B9CFFDCA-8D43-4EA7-8824-3792FB664A73} = {5B48DDD5-6064-4B96-96C7-546A29B72A2B}
 		{C793130B-6B8B-4213-BAC8-9EF877151006} = {CF0BCC12-50FF-4196-8F1E-565F17ED7006}
 		{31F8370D-54ED-4AB5-917A-F655FC6975F4} = {CF0BCC12-50FF-4196-8F1E-565F17ED7006}
+		{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2} = {5B48DDD5-6064-4B96-96C7-546A29B72A2B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72F0222E-4A76-42E0-AABA-748DD2E57477}
