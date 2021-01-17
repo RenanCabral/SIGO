@@ -1,0 +1,108 @@
+.login {
+    height: 100%;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background-color: #14aa4b;
+}
+.login .logo-tms {
+    padding: 30px;
+}
+.login .logo-tms span {
+    font-size: 50px;
+}
+.login .logo-stone {
+    width: 252px;
+    height: 178px;
+    float: none;
+}
+.login .gear {
+    font-size: 70px;
+    float: left;
+    margin-top: 13px;
+}
+.login p {
+    top: -14px;
+    position: relative;
+    font-size: 16px;
+}
+.login form {
+    width: 25%;
+    text-align: center;
+}
+.signin-container {
+    display: flex;
+    flex-direction: column;
+}
+.signin-container > * {
+    width: 100%;
+}
+.signin-right-align {
+    text-align: right;
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1800px) {
+    .login .gear {
+        font-size: 40px;
+        float: left;
+        margin-top: 7px;
+        padding-left: 5px;
+   }
+    .login .logo-tms span {
+        font-size: 30px;
+   }
+    .login p {
+        top: -8px;
+        position: relative;
+        font-size: 9px;
+   }
+}
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+    .login .logo-tms {
+        padding: 15px;
+   }
+    .login .gear {
+        font-size: 40px;
+        float: left;
+        margin-top: 0px;
+        padding-left: 0px;
+   }
+    .login .logo-tms span {
+        font-size: 29px;
+   }
+    .login p {
+        top: -8px;
+        position: relative;
+        font-size: 9px;
+        display: none;
+   }
+}
+@media only screen and (max-width: 1024px) {
+    .login form {
+        width: 80%;
+   }
+    .login .logo-tms {
+        padding: 15px;
+   }
+    .login .gear {
+        font-size: 40px;
+        float: left;
+        margin-top: 0px;
+        padding-left: 0px;
+   }
+    .login .logo-tms span {
+        font-size: 29px;
+   }
+    .login p {
+        top: -8px;
+        position: relative;
+        font-size: 9px;
+        display: none;
+   }
+}
