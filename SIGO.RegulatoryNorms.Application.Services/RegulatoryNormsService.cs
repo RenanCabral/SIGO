@@ -35,6 +35,11 @@ namespace SIGO.RegulatoryNorms.Application.Services
             }
         }
 
+        public async Task<List<DataContracts.RegulatoryNorm>> GetNormsByFilterAsync(DataContracts.RegulatoryNormsFilter filter)
+        {
+            return await Task.FromResult(new List<DataContracts.RegulatoryNorm>());
+        }
+
         public async Task<List<DataContracts.RegulatoryNormUpdate>> CheckRegulatoryNormsUpdateAsync()
         {
             //TODO: implement dispose on externalRegulatoryNormsService

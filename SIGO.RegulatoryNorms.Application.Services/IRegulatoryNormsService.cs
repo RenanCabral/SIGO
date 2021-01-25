@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SIGO.RegulatoryNorms.DataContracts;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SIGO.RegulatoryNorms.Application.Services
@@ -7,5 +8,6 @@ namespace SIGO.RegulatoryNorms.Application.Services
     {
         Task<List<DataContracts.RegulatoryNorm>> GetAllAsync();
         Task<List<DataContracts.RegulatoryNormUpdate>> CheckRegulatoryNormsUpdateAsync();
+        Task<List<DataContracts.RegulatoryNorm>> GetNormsByFilterAsync(RegulatoryNormsFilter filter);
     }
 }

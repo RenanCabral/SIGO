@@ -37,6 +37,23 @@ namespace SIGO.RegulatoryNorms.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetNormsByFilter")]
+        public async Task<IActionResult> GetNormsByFilterAsync(RegulatoryNormsFilter filter)
+        {
+            try
+            {
+                List<RegulatoryNorm> response = await regulatoryNormsService.GetNormsByFilterAsync(filter);
+
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+
+            }
+        }
+
+        [HttpGet]
         [Route("CheckRegulatoryNormsUpdate")]
         public async Task<IActionResult> CheckRegulatoryNormsUpdateAsync()
         {
