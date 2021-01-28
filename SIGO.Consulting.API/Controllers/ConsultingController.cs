@@ -4,89 +4,37 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SIGO.Consulting.Application.Services.External;
+using SIGO.Consulting.DataContracts;
 
 namespace SIGO.Consulting.API.Controllers
 {
+    [ApiController]
+    [Route("Consulting")]
     public class ConsultingController : Controller
     {
-        // GET: Consulting
-        public ActionResult Index()
+        public ConsultingController(IRegulatoryNormsService regulatoryNormsService)
         {
-            return View();
+            this._regulatoryNormsService = regulatoryNormsService ?? throw new ArgumentNullException(nameof(regulatoryNormsService));
         }
 
-        // GET: Consulting/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        private readonly IRegulatoryNormsService _regulatoryNormsService;
 
-        // GET: Consulting/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Consulting/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [HttpGet]
+        [Route("GetRegulatoryNormsUpdates")]
+        public async Task<IActionResult> GetRegulatoryNormsUpdatesAsync()
         {
             try
             {
-                // TODO: Add insert logic here
+                
+                List<RegulatoryNormUpdate> response = await _regulatoryNormsService.GetRegulatoryNormsUpdatesAsync();
 
-                return RedirectToAction(nameof(Index));
+                return Ok(response);
             }
-            catch
+            catch (System.Exception ex)
             {
-                return View();
-            }
-        }
+                return StatusCode(500, ex.Message);
 
-        // GET: Consulting/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Consulting/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Consulting/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Consulting/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
             }
         }
     }

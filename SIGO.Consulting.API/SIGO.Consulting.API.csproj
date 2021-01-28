@@ -11,5 +11,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SIGO.Consulting.Application.Services\SIGO.Consulting.Application.Services.csproj" />
+    <ProjectReference Include="..\SIGO.Consulting.DataContracts\SIGO.Consulting.DataContracts.csproj" />
+    <ProjectReference Include="..\SIGO.Consulting.QueueConsumer\SIGO.Consulting.QueueConsumer.csproj" />
+  </ItemGroup>
+
 
 </Project>

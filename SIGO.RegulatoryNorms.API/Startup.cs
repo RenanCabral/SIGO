@@ -1,17 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using SIGO.RegulatoryNorms.Application.Services;
 using SIGO.RegulatoryNorms.Application.Services.External;
+using SIGO.RegulatoryNorms.Application.Services.Messaging;
 using SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories;
 
 namespace SIGO.RegulatoryNorms.API
@@ -58,6 +52,7 @@ namespace SIGO.RegulatoryNorms.API
             services.AddScoped<IExternalRegulatoryNormsService, ExternalRegulatoryNormsService>();
             services.AddScoped<IExternalRegulatoryNormsClient, ExternalRegulatoryNormsClient>();
             services.AddScoped<IRegulatoryNormsService, RegulatoryNormsService>();
+            services.AddScoped<IQueuePublisher, QueuePublisher>();
         }
     }
 }

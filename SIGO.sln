@@ -29,7 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Consulting.API", "SIGO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Consulting.QueueConsumer", "SIGO.Consulting.QueueConsumer\SIGO.Consulting.QueueConsumer.csproj", "{31F8370D-54ED-4AB5-917A-F655FC6975F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.IndustrialProcess.Application.Services", "SIGO.IndustrialProcess.Application.Services\SIGO.IndustrialProcess.Application.Services.csproj", "{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.IndustrialProcess.Application.Services", "SIGO.IndustrialProcess.Application.Services\SIGO.IndustrialProcess.Application.Services.csproj", "{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Consulting.Application.Services", "SIGO.Consulting.Application.Services\SIGO.Consulting.Application.Services.csproj", "{20AF9C69-8C13-48AC-B4E6-63F8CBC609E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Consulting.DataContracts", "SIGO.Consulting.DataContracts\SIGO.Consulting.DataContracts.csproj", "{177B5609-8CDD-426C-8C6C-0BAE3F67D547}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,14 @@ Global
 		{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20AF9C69-8C13-48AC-B4E6-63F8CBC609E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20AF9C69-8C13-48AC-B4E6-63F8CBC609E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20AF9C69-8C13-48AC-B4E6-63F8CBC609E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20AF9C69-8C13-48AC-B4E6-63F8CBC609E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{177B5609-8CDD-426C-8C6C-0BAE3F67D547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{177B5609-8CDD-426C-8C6C-0BAE3F67D547}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{177B5609-8CDD-426C-8C6C-0BAE3F67D547}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{177B5609-8CDD-426C-8C6C-0BAE3F67D547}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +109,8 @@ Global
 		{C793130B-6B8B-4213-BAC8-9EF877151006} = {CF0BCC12-50FF-4196-8F1E-565F17ED7006}
 		{31F8370D-54ED-4AB5-917A-F655FC6975F4} = {CF0BCC12-50FF-4196-8F1E-565F17ED7006}
 		{7D01AE28-D288-47B6-91B8-B9B35B5DA3B2} = {5B48DDD5-6064-4B96-96C7-546A29B72A2B}
+		{20AF9C69-8C13-48AC-B4E6-63F8CBC609E4} = {CF0BCC12-50FF-4196-8F1E-565F17ED7006}
+		{177B5609-8CDD-426C-8C6C-0BAE3F67D547} = {CF0BCC12-50FF-4196-8F1E-565F17ED7006}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72F0222E-4A76-42E0-AABA-748DD2E57477}

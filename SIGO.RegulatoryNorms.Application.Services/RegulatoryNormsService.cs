@@ -1,4 +1,5 @@
 ﻿using SIGO.RegulatoryNorms.Application.Services.Mappers;
+using SIGO.RegulatoryNorms.Application.Services.Messaging;
 using SIGO.RegulatoryNorms.Domain.Entities;
 using SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories;
 using System.Collections.Generic;
@@ -9,17 +10,18 @@ namespace SIGO.RegulatoryNorms.Application.Services
 {
     public class RegulatoryNormsService : IRegulatoryNormsService
     {
-        public RegulatoryNormsService(IUnitOfWork unitOfWork, IExternalRegulatoryNormsService externalRegulatoryNormsService)
+        public RegulatoryNormsService(IUnitOfWork unitOfWork, IExternalRegulatoryNormsService externalRegulatoryNormsService, IQueuePublisher queuePublisher)
         {
             this._regulatoryNormsRepository = new RegulatoryNormsRepository(unitOfWork);
             this._externalRegulatoryNormsService = externalRegulatoryNormsService;
+            this._queuePublisher = queuePublisher;
         }
 
         #region Fields
 
         private readonly IRegulatoryNormsRepository _regulatoryNormsRepository;
         private readonly IExternalRegulatoryNormsService _externalRegulatoryNormsService;
-
+        private readonly IQueuePublisher _queuePublisher;
 
         #endregion
 
@@ -42,6 +44,9 @@ namespace SIGO.RegulatoryNorms.Application.Services
 
         public async Task<List<DataContracts.RegulatoryNormUpdate>> CheckRegulatoryNormsUpdateAsync()
         {
+
+            var updatedRegulatoryNormsList = new List<DataContracts.RegulatoryNormUpdate>();
+
             //TODO: implement dispose on externalRegulatoryNormsService
 
             // read external norms base
@@ -64,6 +69,8 @@ namespace SIGO.RegulatoryNorms.Application.Services
                             await _regulatoryNormsRepository.UpdateAsync(storedRegulatoryNorm);
 
                             regulatoryNorm.Updated = true;
+
+                            updatedRegulatoryNormsList.Add(regulatoryNorm);
                         }
                     }
                     else
@@ -77,7 +84,12 @@ namespace SIGO.RegulatoryNorms.Application.Services
                             Description = regulatoryNorm.Description
                         };
                         await _regulatoryNormsRepository.InsertAsync(newRegulatoryNorm);
+
+                        updatedRegulatoryNormsList.Add(regulatoryNorm);
                     }
+
+                    //Publishes norms' updates to queue 
+                    this._queuePublisher.SendMessage();
                 }
             }
 
