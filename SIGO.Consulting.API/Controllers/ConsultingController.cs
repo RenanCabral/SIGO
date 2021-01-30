@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SIGO.Consulting.Application.Services.External;
 using SIGO.Consulting.DataContracts;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SIGO.Consulting.API.Controllers
 {
@@ -25,8 +23,7 @@ namespace SIGO.Consulting.API.Controllers
         public async Task<IActionResult> GetRegulatoryNormsUpdatesAsync()
         {
             try
-            {
-                
+            {   
                 List<RegulatoryNormUpdate> response = await _regulatoryNormsService.GetRegulatoryNormsUpdatesAsync();
 
                 return Ok(response);

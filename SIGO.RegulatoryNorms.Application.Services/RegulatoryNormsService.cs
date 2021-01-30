@@ -89,7 +89,7 @@ namespace SIGO.RegulatoryNorms.Application.Services
                     }
 
                     //Publishes norms' updates to queue 
-                    this._queuePublisher.SendMessage();
+                    this._queuePublisher.SendMessage(updatedRegulatoryNormsList);
                 }
             }
 

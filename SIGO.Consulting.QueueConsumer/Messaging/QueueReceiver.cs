@@ -2,13 +2,12 @@
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SIGO.Consulting.DataContracts;
-using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SIGO.Consulting.QueueConsumer.Messaging
 {
-    public class QueueReceiver: IQueueReceiver
+    public class QueueReceiver : IQueueReceiver
     {
         public List<RegulatoryNormUpdate> ReadMessages()
         {
@@ -19,7 +18,7 @@ namespace SIGO.Consulting.QueueConsumer.Messaging
             {
                 using (var channel = connection.CreateModel())
                 {
-                    channel.QueueDeclare(queue: "hello",
+                    channel.QueueDeclare(queue: "regulatory-norms",
                                          durable: false,
                                          exclusive: false,
                                          autoDelete: false,
@@ -35,10 +34,7 @@ namespace SIGO.Consulting.QueueConsumer.Messaging
                         regulatoryNormUpdate.AddRange(message);
                     };
 
-                    channel.BasicConsume(queue: "hello",
-                                         autoAck: true,
-                                         consumer: consumer);
-
+                    channel.BasicConsume(queue: "regulatory-norms", autoAck: true, consumer: consumer);
                 }
             }
 

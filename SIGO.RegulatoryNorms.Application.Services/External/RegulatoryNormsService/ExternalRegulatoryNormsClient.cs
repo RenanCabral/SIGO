@@ -1,5 +1,6 @@
 ﻿using SIGO.RegulatoryNorms.DataContracts;
 using System;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -32,6 +33,16 @@ namespace SIGO.RegulatoryNorms.Application.Services.External
 
         private string GetFakeRegulatoryNormsResponse()
         {
+			FileStream fileStream = new FileStream("ExternalRegulatoryNormsBase/ExternalRegulatoryNormsBase.json", FileMode.Open);
+			using (StreamReader reader = new StreamReader(fileStream))
+			{
+				string content = reader.ReadToEnd();
+				return content;
+			}
+        }
+
+		private string GetFakeRegulatoryNormsResponse_old()
+		{
 			return @" [
 							{
 								'Code': '0001',
@@ -49,12 +60,19 @@ namespace SIGO.RegulatoryNorms.Application.Services.External
 							},
 							{
 								'Code': '0003',
-								'Description': 'A seguinte norma regulatória na ambiental, determina que o descarte de resíduos seja feito através de descarte seletivo',
+								'Description': 'A seguinte norma regulatória ambiental, determina que o descarte de resíduos seja feito através de descarte seletivo',
+								'ReleaseDate': '01/02/2021',
+								'DueDate': '01/10/2021',
+								'Category': 'Environmental'
+							},
+							{
+								'Code': '0004',
+								'Description': 'Test regulatory norm',
 								'ReleaseDate': '01/02/2021',
 								'DueDate': '01/10/2021',
 								'Category': 'Environmental'
 							}
 						]";
-        }
-    }
+		}
+	}
 }
