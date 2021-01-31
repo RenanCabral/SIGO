@@ -10,9 +10,13 @@ variables:
   DOCKER_BUILDKIT: 1
     
 steps:
+
 - task: Docker@2
-  displayName: Build an image
   inputs:
-    repository: $(imageName)
-    command: build
-    Dockerfile: app/Dockerfile
+    containerRegistry: 'Azure Container Registry'
+    repository: 'sigo-regulatorynorms-api'
+    command: 'buildAndPush'
+    Dockerfile: 'SIGO.RegulatoryNorms.API/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
