@@ -13,11 +13,8 @@ WORKDIR /src
 COPY ["SIGO.RegulatoryNorms.API.csproj", "SIGO.RegulatoryNorms.API/"]
 
 RUN dotnet restore "SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj"
-COPY . .
-WORKDIR "/src/SIGO.RegulatoryNorms.API"
-RUN dotnet build "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/build
 
-FROM build AS publish
+COPY . .
 RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
