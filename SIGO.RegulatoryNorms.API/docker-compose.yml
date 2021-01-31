@@ -1,0 +1,8 @@
+version: "3.5"
+services:
+  regulatorynorms-api:
+    image: sigo-regulatory-norms-api
+    container_name: sigo-regulatory-norms-api
+    build:
+        context: .
+        dockerfile: ./SIGO.RegulatoryNorms.API/Dockerfile
