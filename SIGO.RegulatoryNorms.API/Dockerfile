@@ -11,10 +11,16 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1.100 AS build
 WORKDIR /src
 COPY ["SIGO.RegulatoryNorms.API.csproj", "SIGO.RegulatoryNorms.API/"]
+COPY ["SIGO.RegulatoryNorms.Application.Services.csproj", "SIGO.RegulatoryNorms.Application.Services/"]
+COPY ["SIGO.RegulatoryNorms.DataContract.csproj", "SIGO.RegulatoryNorms.DataContract/"]
+COPY ["SIGO.RegulatoryNorms.Infrastructure.CrossCutting.csproj", "SIGO.RegulatoryNorms.Infrastructure.CrossCutting/"]
 
 RUN dotnet restore "SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj"
-
 COPY . .
+WORKDIR "/src/SIGO.RegulatoryNorms.API"
+RUN dotnet build "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/build
+
+FROM build AS publish
 RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
