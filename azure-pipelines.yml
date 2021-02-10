@@ -12,14 +12,6 @@ variables:
     
 steps:
 
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'Pago pelo Uso(600c3c04-d3aa-4551-8802-7abd773b35bb)'
-    azureContainerRegistry: '{"loginServer":"sigoapp.azurecr.io", "id" : "/subscriptions/600c3c04-d3aa-4551-8802-7abd773b35bb/resourceGroups/sigo-resource-group/providers/Microsoft.ContainerRegistry/registries/sigoapp"}'
-    dockerComposeFile: 'docker-compose.yml'
-    action: 'Combine configuration'
-    outputDockerComposeFile: '$(Build.StagingDirectory)/docker-compose.yml'
 - task: Docker@2
   inputs:
     containerRegistry: 'Azure Container Registry'

@@ -11,12 +11,17 @@
   "profiles": {
     "SIGO.RegulatoryNorms.API": {
       "commandName": "Project",
-      "launchBrowser": false,
       "launchUrl": "RegulatoryNorms",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:5000"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/RegulatoryNorms",
+      "publishAllPorts": true,
+      "useSSL": true
     }
   }
 }
