@@ -17,6 +17,7 @@ steps:
     containerRegistry: 'Azure Container Registry'
     repository: 'sigo-regulatorynorms-api'
     command: 'buildAndPush'
+    buildContext: '$(Build.SourcesDirectory)'
     Dockerfile: 'SIGO.RegulatoryNorms.API/Dockerfile'
     tags: |
       $(Build.BuildId)
