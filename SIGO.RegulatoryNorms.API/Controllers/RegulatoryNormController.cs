@@ -20,6 +20,14 @@ namespace SIGO.RegulatoryNorms.API.Controllers
         private readonly IRegulatoryNormsService regulatoryNormsService;
 
         [HttpGet]
+        [Route("Healthcheck")]
+        public IActionResult GetHealthcheckStatus()
+        {
+            return Ok("RegulatoryNormsController is Healthy");
+        }
+
+
+        [HttpGet]
         [Route("GetAll")]
         public async Task<IActionResult> GetAllAsync()
         {
