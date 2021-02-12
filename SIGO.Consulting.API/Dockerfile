@@ -11,13 +11,17 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-nanoserver-1903 AS build
 WORKDIR /src
 COPY ["SIGO.Consulting.API/SIGO.Consulting.API.csproj", "SIGO.Consulting.API/"]
+COPY ["SIGO.Consulting.Application.Services/SIGO.Consulting.Application.Services.csproj", "SIGO.Consulting.Application.Services/"]
+COPY ["SIGO.Consulting.DataContracts/SIGO.Consulting.DataContracts.csproj", "SIGO.Consulting.DataContracts/"]
+COPY ["SIGO.Consulting.QueueConsumer/SIGO.Consulting.QueueConsumer.csproj", "SIGO.Consulting.QueueConsumer/"]
+
 RUN dotnet restore "SIGO.Consulting.API/SIGO.Consulting.API.csproj"
 COPY . .
 WORKDIR "/src/SIGO.Consulting.API"
-RUN dotnet build "SIGO.Consulting.API.csproj" -c Release -o /app/build
+RUN dotnet build "SIGO.Consulting.API/SIGO.Consulting.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "SIGO.Consulting.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "SIGO.Consulting.API/SIGO.Consulting.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

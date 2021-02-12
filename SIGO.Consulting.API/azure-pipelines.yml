@@ -1,0 +1,24 @@
+trigger:
+
+- main
+   
+pool:
+  vmImage: 'windows-latest'
+   
+
+variables:
+  imageName: 'sigo-consulting-api'
+  DOCKER_BUILDKIT: 0
+    
+steps:
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Azure Container Registry'
+    repository: 'sigo-consulting-api'
+    command: 'buildAndPush'
+    buildContext: '$(Build.SourcesDirectory)'
+    Dockerfile: 'SIGO.Consulting.API/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
