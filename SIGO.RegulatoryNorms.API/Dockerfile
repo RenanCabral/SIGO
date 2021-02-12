@@ -18,10 +18,10 @@ COPY ["SIGO.RegulatoryNorms.Infrastructure.CrossCutting/SIGO.RegulatoryNorms.Inf
 RUN dotnet restore "SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj"
 COPY . .
 WORKDIR "/src/SIGO.RegulatoryNorms.API"
-RUN dotnet build "SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/build
+RUN dotnet build "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
