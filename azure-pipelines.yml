@@ -1,6 +1,13 @@
 trigger:
-
-- main
+  paths:
+    include:
+      - 'SIGO.RegulatoryNorms.API/SIGO.Consulting.API/*'
+      - 'SIGO.RegulatoryNorms.Application.Services/*'
+      - 'SIGO.RegulatoryNorms.DataContracts/*'
+      - 'SIGO.RegulatoryNorms.Infrastructure.CrossCutting/*'
+  branches:
+    include:
+     - main
    
 pool:
   vmImage: 'ubuntu-latest'

@@ -1,6 +1,13 @@
 trigger:
-
-- main
+  paths:
+    include:
+      - 'SIGO.Consulting.API/SIGO.Consulting.API/*'
+      - 'SIGO.Consulting.Application.Services/*'
+      - 'SIGO.Consulting.DataContracts/*'
+      - 'SIGO.Consulting.QueueConsumer/*'
+  branches:
+    include:
+     - main
    
 pool:
   vmImage: 'vs2017-win2016'
