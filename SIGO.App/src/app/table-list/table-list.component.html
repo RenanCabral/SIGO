@@ -28,57 +28,23 @@
                                   </th>
                               </thead>
                               <tbody>
-                                  <tr>
+                                  <tr *ngFor="let regulatoryNorm of regulatoryNorms">
                                       <td>
-                                          00001
+                                          {{regulatoryNorm.code}}
                                       </td>
                                       <td>
-                                        A seguinte norma regulatória na área de segurança do trabalho, determina que os funcionários estejam com uso obrigatório de EPis.
+                                        {{regulatoryNorm.description}}
                                       </td>
                                       <td>
-                                        08/12/2020
+                                        {{regulatoryNorm.releaseDate}}
                                     </td>                                     
                                       <td>
                                         <span class="material-icons">check</span>
                                       </td>
                                       <td>
-                                          Segurança do Trabalho
+                                        {{regulatoryNorm.category}}
                                       </td>
                                   </tr>
-                                  <tr>
-                                    <td>
-                                        00002
-                                    </td>
-                                    <td>
-                                        A seguinte norma regulatória na industrial, determina que equimamentos industriais com mais de 20 anos de uso sejam vistoriados regularmente.
-                                    </td>
-                                    <td>
-                                       20/12/2020
-                                  </td>                                     
-                                    <td>
-                                        <span class="material-icons">check</span>
-                                    </td>
-                                    <td>
-                                        Industrial
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        00003
-                                    </td>
-                                    <td>
-                                        A seguinte norma regulatória na ambiental, determina que o descarte de resíduos seja feito através de descarte seletivo.
-                                    </td>
-                                    <td>
-                                        01/02/1998
-                                  </td>                                     
-                                    <td>
-                                        <span class="material-icons">close</span>
-                                    </td>
-                                    <td>
-                                        Ambiental
-                                    </td>
-                                </tr>
                               </tbody>
                           </table>
                       </div>

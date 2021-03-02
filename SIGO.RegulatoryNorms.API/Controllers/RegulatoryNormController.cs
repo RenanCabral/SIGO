@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using SIGO.RegulatoryNorms.Application.Services;
 using SIGO.RegulatoryNorms.DataContracts;
 using System;
@@ -25,7 +26,6 @@ namespace SIGO.RegulatoryNorms.API.Controllers
         {
             return Ok("RegulatoryNormsController is Healthy");
         }
-
 
         [HttpGet]
         [Route("GetAll")]

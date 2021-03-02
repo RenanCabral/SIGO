@@ -1,0 +1,24 @@
+trigger:
+
+- main
+   
+pool:
+  vmImage: 'ubuntu-latest'
+   
+
+variables:
+  imageName: 'sigo-regulatory-norms-api'
+  DOCKER_BUILDKIT: 0
+    
+steps:
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Azure Container Registry'
+    repository: 'sigo-regulatorynorms-api'
+    command: 'buildAndPush'
+    buildContext: '$(Build.SourcesDirectory)'
+    Dockerfile: 'SIGO.RegulatoryNorms.API/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
