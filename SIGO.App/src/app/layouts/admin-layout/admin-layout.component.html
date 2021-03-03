@@ -1,9 +1,17 @@
 <div class="wrapper">
-    <div class="sidebar" data-color="danger" data-background-color="white">
+    <div class="sidebar" data-color="danger" data-background-color="white" *ngIf="this.userLoggedIn">
         <app-sidebar></app-sidebar>
         <div class="sidebar-background" data-background-color="white"></div>
     </div>
-    <div class="main-panel">
+
+    <div class="main-panel" name="login" *ngIf="!this.userLoggedIn">
+        <router-outlet></router-outlet>
+        <div *ngIf="isMaps('maps')">
+            <app-footer></app-footer>
+        </div>
+    </div>
+
+    <div class="main-panel" *ngIf="this.userLoggedIn">
         <app-navbar></app-navbar>
         <router-outlet></router-outlet>
         <div *ngIf="isMaps('maps')">

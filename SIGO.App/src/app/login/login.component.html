@@ -1,5 +1,13 @@
 <div class="main-content">
-    <div class="container-fluid" style="margin-left: 25%; !important">
+    <div class="container-fluid" style="margin-left: 20%; !important">
+      <div class="logo">
+        <a href="#" class="simple-text">
+            <div class="logo-img" >
+                <img src="/assets/img/sigo.png" style="width: 85px; margin-left: 20%; !important" />
+             </div>
+        </a>
+        <h3> Sistema Integrado de Gestão Operacional </h3>
+    </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
@@ -22,7 +30,7 @@
                                   </mat-form-field>
                                 </div>
                             </div>
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Login</button>
+                            <button mat-raised-button type="button" class="btn btn-danger pull-right" (click)="logIn()">Login</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
