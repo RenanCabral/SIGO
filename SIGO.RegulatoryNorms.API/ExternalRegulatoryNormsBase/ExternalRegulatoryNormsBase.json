@@ -8,21 +8,21 @@
 	},
 	{
 		"Code": "0002",
-		"Description": "A seguinte norma regulatória na industrial, determina que equimamentos industriais com mais de 20 anos de uso sejam vistoriados regularmente ....",
+		"Description": "A seguinte norma regulatória na área industrial, determina que equimamentos industriais com mais de 20 anos de uso sejam vistoriados regularmente ...",
 		"ReleaseDate": "20/12/2020",
 		"DueDate": "01/08/2021",
 		"Category": "Industrial"
 	},
 	{
 		"Code": "0003",
-		"Description": "A seguinte norma regulatória ambiental, determina que o descarte de resíduos seja feito através de descarte seletivo",
+		"Description": "A seguinte norma regulatória na área ambiental, determina que o descarte de resíduos seja feito através de descarte seletivo.",
 		"ReleaseDate": "01/02/2021",
 		"DueDate": "01/10/2021",
 		"Category": "Environmental"
 	},
 	{
 		"Code": "0004",
-		"Description": "Test regulatoryddd",
+		"Description": "A seguinte norma regulatória na área ambiental, determina que o descarte de resíduos seja feito em aterro sanitário apropriado...",
 		"ReleaseDate": "01/02/2021",
 		"DueDate": "01/10/2021",
 		"Category": "Environmental"

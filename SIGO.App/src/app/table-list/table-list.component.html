@@ -36,13 +36,13 @@
                                         {{regulatoryNorm.description}}
                                       </td>
                                       <td>
-                                        {{regulatoryNorm.releaseDate}}
+                                        {{regulatoryNorm.releaseDate | date:'dd/MM/yyyy'}}
                                     </td>                                     
                                       <td>
-                                        <span class="material-icons">check</span>
+                                        <span class="material-icons">{{ regulatoryNorm.isApplied === true ? 'check' : 'clear' }}</span>
                                       </td>
                                       <td>
-                                        {{regulatoryNorm.category}}
+                                        {{ regulatoryNormCategory[regulatoryNorm.category]}}
                                       </td>
                                   </tr>
                               </tbody>

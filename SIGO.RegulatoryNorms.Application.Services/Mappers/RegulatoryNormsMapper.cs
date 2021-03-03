@@ -8,10 +8,11 @@ namespace SIGO.RegulatoryNorms.Application.Services.Mappers
         {
             return new DataContracts.RegulatoryNorm
             {
-
                 Code = regulatoryNorm.Code,
                 Description = regulatoryNorm.Description,
-                Category = ((DataContracts.RegulatoryNormCategory)(int)regulatoryNorm.Category)
+                Category = ((DataContracts.RegulatoryNormCategory)(int)regulatoryNorm.Category),
+                ReleaseDate = regulatoryNorm.ReleaseDate,
+                IsApplied = regulatoryNorm.IsApplied
             };
         }
 

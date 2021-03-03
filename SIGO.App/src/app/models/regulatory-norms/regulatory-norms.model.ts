@@ -7,5 +7,6 @@ export class RegulatoryNorm {
     ReleaseDate: Date;
     Active: string;
     Category: RegulatoryNormCategory;
+    IsApplied: boolean;
   }
   

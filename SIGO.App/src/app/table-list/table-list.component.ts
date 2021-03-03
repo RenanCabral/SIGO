@@ -13,10 +13,17 @@ import { RegulatoryNormCategory } from 'app/models/regulatory-norms/regulatory-n
 export class TableListComponent implements OnInit {
   
   regulatoryNorms: RegulatoryNorm[];
-  regulatoryNormCategory: RegulatoryNormCategory[];
+  
+  regulatoryNormCategory: any[];
+  
 
   constructor(private http: HttpClient) { 
-    
+  
+    this.regulatoryNormCategory = new Array();
+    this.regulatoryNormCategory[0] = 'Segurança do Trabalho';
+    this.regulatoryNormCategory[1] = 'Ambiental';
+    this.regulatoryNormCategory[2] = 'Industrial';
+
     this.showRegulatoryNorms();
   }
   

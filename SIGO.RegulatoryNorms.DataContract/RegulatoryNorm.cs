@@ -10,6 +10,8 @@ namespace SIGO.RegulatoryNorms.DataContracts
 
         public RegulatoryNormCategory Category { get; set; }
 
-        public DateTime ReleaseDate { get; set; } = DateTime.Parse("02-01-1998");
+        public bool IsApplied { get; set; }
+
+        public DateTime ReleaseDate { get; set; }
     }
 }

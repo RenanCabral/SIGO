@@ -14,7 +14,15 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
 
         public async Task<List<RegulatoryNorm>> GetAllAsync()
         {
-            var sql = @" SELECT * FROM [dbo].[RegulatoryNorms] WHERE Active = 1";
+            var sql = @" SELECT    [RegulatoryNormId]
+                                  ,[Code]
+                                  ,[Description]
+                                  ,[Active]
+                                  ,[CategoryId] AS Category
+                                  ,[ReleaseDate]
+                                  ,[UpdateDate] 
+                                  ,[IsApplied]
+                        FROM [dbo].[RegulatoryNorms] WHERE Active = 1";
 
             var regulatoryNorms = await this.UnitOfWork.DbConnector.Connection.QueryAsync<RegulatoryNorm>(sql);
 
@@ -23,7 +31,15 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
 
         public async Task<RegulatoryNorm> GetByCodeAsync(string code)
         {
-            var sql = @" SELECT * FROM [dbo].[RegulatoryNorms] WHERE Code = @code AND Active = 1";
+            var sql = @" SELECT    [RegulatoryNormId]
+                                  ,[Code]
+                                  ,[Description]
+                                  ,[Active]
+                                  ,[CategoryId] AS Category
+                                  ,[ReleaseDate]
+                                  ,[UpdateDate]
+                                  ,[IsApplied]
+                        FROM [dbo].[RegulatoryNorms] WHERE Code = @code AND Active = 1";
 
             var param = new { code };
 
@@ -41,7 +57,7 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
                 code = regulatoryNorm.Code,
                 description = regulatoryNorm.Description,
                 active = true,
-                categoryId = RegulatoryNormCategory.WorkSafety
+                categoryId = Convert.ToInt32(regulatoryNorm.Category)
             };
 
             await this.UnitOfWork.DbConnector.Connection.ExecuteAsync(sql, param);
@@ -51,14 +67,18 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
         {
             var sql = @" UPDATE [dbo].[RegulatoryNorms] 
                        SET Description = @description,
-                           UpdateDate = @updateDate 
+                           UpdateDate = @updateDate,
+                           CategoryId = @categoryId,
+                           ReleaseDate = @releaseDate 
                        WHERE Code = @code";
 
             var param = new
             {
                 code = regulatoryNorm.Code,
                 description = regulatoryNorm.Description,
-                updateDate = DateTime.UtcNow
+                updateDate = DateTime.UtcNow,
+                categoryId = Convert.ToInt32(regulatoryNorm.Category),
+                releaseDate = regulatoryNorm.ReleaseDate
             };
 
             await this.UnitOfWork.DbConnector.Connection.ExecuteAsync(sql, param);
