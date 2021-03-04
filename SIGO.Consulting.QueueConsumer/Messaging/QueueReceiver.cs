@@ -4,6 +4,7 @@ using RabbitMQ.Client.Events;
 using SIGO.Consulting.DataContracts;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace SIGO.Consulting.QueueConsumer.Messaging
 {
@@ -37,7 +38,7 @@ namespace SIGO.Consulting.QueueConsumer.Messaging
                     channel.BasicConsume(queue: "regulatory-norms", autoAck: true, consumer: consumer);
                 }
             }
-
+            Thread.Sleep(1200);
             return regulatoryNormUpdate;
         }
     }

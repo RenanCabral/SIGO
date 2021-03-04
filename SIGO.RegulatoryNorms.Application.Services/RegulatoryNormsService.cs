@@ -45,7 +45,7 @@ namespace SIGO.RegulatoryNorms.Application.Services
         public async Task<List<DataContracts.RegulatoryNormUpdate>> CheckRegulatoryNormsUpdateAsync()
         {
 
-            var updatedRegulatoryNormsList = new List<DataContracts.RegulatoryNormUpdate>();
+            List<DataContracts.RegulatoryNormUpdate> updatedRegulatoryNormsList;
 
             //TODO: implement dispose on externalRegulatoryNormsService
 
@@ -56,6 +56,7 @@ namespace SIGO.RegulatoryNorms.Application.Services
             {
                 foreach (var regulatoryNorm in regulatoryNorms)
                 {
+                    updatedRegulatoryNormsList = new List<DataContracts.RegulatoryNormUpdate>();
 
                     // get the regulatory norm from database
                     var storedRegulatoryNorm = await _regulatoryNormsRepository.GetByCodeAsync(regulatoryNorm.Code);
@@ -88,8 +89,11 @@ namespace SIGO.RegulatoryNorms.Application.Services
                         updatedRegulatoryNormsList.Add(regulatoryNorm);
                     }
 
-                    //Publishes norms' updates to queue 
-                    this._queuePublisher.SendMessage(updatedRegulatoryNormsList);
+                    if (updatedRegulatoryNormsList.Any())
+                    {
+                        //Publishes norms' updates to queue 
+                        this._queuePublisher.SendMessage(updatedRegulatoryNormsList);
+                    }
                 }
             }
 
