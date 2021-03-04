@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   }
 
   logIn() {
-    window.location.href = '#/dashboard?userId=1';
+    window.location.href = '#/consulting';
   }
 
 }

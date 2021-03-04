@@ -54,9 +54,9 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'login',          component: LoginComponent },
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
+    { path: 'consulting',      component: DashboardComponent },
+    { path: 'industrial-processes',   component: UserProfileComponent },
+    { path: 'regulatory-norms',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
