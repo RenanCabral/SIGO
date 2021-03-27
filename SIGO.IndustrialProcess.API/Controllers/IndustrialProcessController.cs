@@ -1,48 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SIGO.IndustrialProcess.Application.Services.External;
+using SIGO.IndustrialProcess.DataContracts;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SIGO.IndustrialProcess.API.Controllers
 {
+    [ApiController]
+    [Route("IndustrialProcess")]
     public class IndustrialProcessController : Controller
     {
-        // GET: IndustrialProcess
-        public ActionResult Index()
+        public IndustrialProcessController(ILogisticService logisticService, ISAPClient sapClient)
         {
-            return View();
+            this.logisticService = logisticService ?? throw new ArgumentNullException(nameof(logisticService));
+            this.sapClient = sapClient ?? throw new ArgumentNullException(nameof(sapClient));
         }
 
-        // GET: IndustrialProcess/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        private readonly ILogisticService logisticService;
+        private readonly ISAPClient sapClient;
 
-        // GET: IndustrialProcess/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: IndustrialProcess/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [HttpGet]
+        [Route("GetLogisticReport")]
+        public async Task<IActionResult> GetLogisticReportAsync()
         {
             try
             {
-                // TODO: Add insert logic here
+                List<LogisticReportItem> response = await logisticService.GetLogisticReportAsync();
 
-                return RedirectToAction(nameof(Index));
+                return Ok(response);
             }
-            catch
+            catch (System.Exception ex)
             {
-                return View();
+                return StatusCode(500, ex.Message);
+
             }
         }
+
+        //[HttpGet]
+        //[Route("GetEmployeesReport")]
+        //public async Task<IActionResult> GetEmployeesReport()
+        //{
+        //    try
+        //    {
+        //        List<EmployeeReportItem> response = await regulatoryNormsService.CheckRegulatoryNormsUpdateAsync();
+
+        //        return Ok(response);
+        //    }
+        //    catch (System.Exception ex)
+        //    {
+        //        return StatusCode(500, ex.Message);
+
+        //    }
+        //}
 
         // GET: IndustrialProcess/Edit/5
         public ActionResult Edit(int id)

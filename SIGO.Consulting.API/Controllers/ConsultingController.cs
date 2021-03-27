@@ -19,7 +19,7 @@ namespace SIGO.Consulting.API.Controllers
         private readonly IRegulatoryNormsService _regulatoryNormsService;
 
         [HttpGet]
-        [Route("GetRegulatoryNormsUpdates")]
+        [Route("GetNormsUpdates")]
         public async Task<IActionResult> GetRegulatoryNormsUpdatesAsync()
         {
             try

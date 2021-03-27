@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using SIGO.IndustrialProcess.Application.Services.External;
+using SIGO.IndustrialProcess.QueueConsumer.Messaging;
 
 namespace SIGO.IndustrialProcess.API
 {
@@ -26,6 +21,7 @@ namespace SIGO.IndustrialProcess.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            ConfigureIoC(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +42,13 @@ namespace SIGO.IndustrialProcess.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static void ConfigureIoC(IServiceCollection services)
+        {
+            services.AddScoped<ILogisticService, LogisticService>();
+            services.AddScoped<ISAPClient, SAPClient>();
+            services.AddScoped<IQueueReceiver, QueueReceiver>();
         }
     }
 }

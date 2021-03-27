@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SIGO.IndustrialProcess.Application.Services
 {
-    public class SAPService
+    public class SAPService: ISAPClient
     {
         private readonly ISAPClient _sapClient;
 
@@ -17,6 +17,11 @@ namespace SIGO.IndustrialProcess.Application.Services
         public object GetEmployeesData()
         {
             return _sapClient.Invoke("GET_EMPLOYEES_DATA");
+        }
+
+        public object Invoke(string function)
+        {
+            throw new NotImplementedException();
         }
     }
 }

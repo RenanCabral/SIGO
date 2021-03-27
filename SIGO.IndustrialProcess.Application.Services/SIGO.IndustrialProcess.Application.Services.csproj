@@ -8,4 +8,9 @@
     <PackageReference Include="sapnco3.x64" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SIGO.IndustrialProcess.DataContracts\SIGO.IndustrialProcess.DataContracts.csproj" />
+    <ProjectReference Include="..\SIGO.IndustrialProcess.QueueConsumer\SIGO.IndustrialProcess.QueueConsumer.csproj" />
+  </ItemGroup>
+
 </Project>

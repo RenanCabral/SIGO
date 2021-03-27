@@ -9,5 +9,7 @@ namespace SIGO.RegulatoryNorms.DataContracts
         public string Description { get; set; }
 
         public DateTime ReleaseDate { get; set; }
+
+        public RegulatoryNormCategory Category { get; set; }
     }
 }

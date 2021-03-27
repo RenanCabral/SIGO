@@ -45,8 +45,8 @@ namespace SIGO.RegulatoryNorms.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetNormsByFilter")]
-        public async Task<IActionResult> GetNormsByFilterAsync(RegulatoryNormsFilter filter)
+        [Route("GetNorms")]
+        public async Task<IActionResult> GetNormsByFilterAsync([FromQuery] RegulatoryNormsFilter filter)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace SIGO.RegulatoryNorms.API.Controllers
         }
 
         [HttpGet]
-        [Route("CheckRegulatoryNormsUpdate")]
+        [Route("CheckUpdates")]
         public async Task<IActionResult> CheckRegulatoryNormsUpdateAsync()
         {
             try

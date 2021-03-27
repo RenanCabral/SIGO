@@ -8,7 +8,7 @@ namespace SIGO.IndustrialProcess.Application.Services.External
 
         public SAPClient()
         {
-            config = GetRfcConfigParameters();
+            //config = GetRfcConfigParameters();
         }
 
         public object Invoke(string @function)
