@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { LogisticReportItem } from 'app/models/logistic/logistic-report-item.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +10,13 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  logisticReportData: LogisticReportItem[];
+
+  constructor(private http: HttpClient) {     
+    
+    this.logisticReportData = new Array();
+    this.showRegulatoryNorms();
+  }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -146,5 +154,13 @@ export class DashboardComponent implements OnInit {
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
   }
+  
+  getLogisticReportData() {
+    return this.http.get('http://localhost:5002/IndustrialProcess/GetLogisticReport');
+  }
 
+  showRegulatoryNorms()  {
+    this.getLogisticReportData()
+    .subscribe((data: LogisticReportItem[]) => this.logisticReportData = data);
+  }
 }

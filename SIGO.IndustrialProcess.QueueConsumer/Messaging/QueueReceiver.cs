@@ -63,14 +63,14 @@ namespace SIGO.IndustrialProcess.QueueConsumer.Messaging
                     {
                         var body = ea.Body.ToArray();
                         var message = JsonConvert.DeserializeObject<List<LogisticReportItem>>(Encoding.UTF8.GetString(body));
-
                         regulatoryNormUpdate.AddRange(message);
                     };
 
                     channel.BasicConsume(queue: "logistic", autoAck: true, consumer: consumer);
                 }
             }
-            Thread.Sleep(1200);
+            
+            Thread.Sleep(1500);
             return regulatoryNormUpdate;
         }
     }

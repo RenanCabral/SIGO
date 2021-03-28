@@ -38,6 +38,7 @@ namespace SIGO.Consulting.QueueConsumer.Messaging
                     channel.BasicConsume(queue: "regulatory-norms", autoAck: true, consumer: consumer);
                 }
             }
+            
             Thread.Sleep(1200);
             return regulatoryNormUpdate;
         }

@@ -15,9 +15,9 @@ namespace SIGO.IndustrialProcess.Application.Services.External
 
         private readonly IQueueReceiver _queueReceiver;
 
-        public async Task<List<LogisticReportItem>> GetLogisticReportAsync()
+        public List<LogisticReportItem> GetLogisticReportAsync()
         {
-            return await Task.FromResult(this._queueReceiver.ReadLogisticMessages());
+            return this._queueReceiver.ReadLogisticMessages();
         }
     }
 }

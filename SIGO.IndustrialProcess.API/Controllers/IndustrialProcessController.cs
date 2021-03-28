@@ -4,6 +4,7 @@ using SIGO.IndustrialProcess.Application.Services.External;
 using SIGO.IndustrialProcess.DataContracts;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SIGO.IndustrialProcess.API.Controllers
@@ -23,12 +24,11 @@ namespace SIGO.IndustrialProcess.API.Controllers
 
         [HttpGet]
         [Route("GetLogisticReport")]
-        public async Task<IActionResult> GetLogisticReportAsync()
+        public IActionResult GetLogisticReport()
         {
             try
             {
-                List<LogisticReportItem> response = await logisticService.GetLogisticReportAsync();
-
+                List<LogisticReportItem> response = logisticService.GetLogisticReportAsync();
                 return Ok(response);
             }
             catch (System.Exception ex)

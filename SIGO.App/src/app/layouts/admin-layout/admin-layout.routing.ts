@@ -53,13 +53,13 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'login',          component: LoginComponent },
-    { path: 'consulting',      component: DashboardComponent },
-    { path: 'industrial-processes',   component: UserProfileComponent },
+    { path: 'login',                component: LoginComponent },
+    { path: 'industrial-processes', component: DashboardComponent },
+    { path: 'consulting',           component: UserProfileComponent },
     { path: 'regulatory-norms',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'typography',           component: TypographyComponent },
+    { path: 'icons',                component: IconsComponent },
+    { path: 'maps',                 component: MapsComponent },
+    { path: 'notifications',        component: NotificationsComponent },
+    { path: 'upgrade',              component: UpgradeComponent },
 ];
