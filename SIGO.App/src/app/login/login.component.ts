@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   }
 
   logIn() {
-    window.location.href = '#/consulting';
+    window.location.href = '#/industrial-processes';
   }
 
 }
