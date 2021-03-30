@@ -1,12 +1,14 @@
 ﻿using SIGO.IndustrialProcess.DataContracts;
 using SIGO.IndustrialProcess.QueueConsumer.Messaging;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SIGO.IndustrialProcess.Application.Services.External
 {
-    public class LogisticService: ILogisticService
+    public class LogisticService : ILogisticService
     {
+        private static List<LogisticReportItem> _logisticReportData = new List<LogisticReportItem>();
 
         public LogisticService(IQueueReceiver queueReceiver)
         {
@@ -17,7 +19,13 @@ namespace SIGO.IndustrialProcess.Application.Services.External
 
         public List<LogisticReportItem> GetLogisticReportAsync()
         {
-            return this._queueReceiver.ReadLogisticMessages();
+            var responseMessages = this._queueReceiver.ReadLogisticMessages();
+            
+            if (responseMessages.Any()) {
+                _logisticReportData.AddRange(responseMessages);
+            }
+
+            return _logisticReportData;
         }
     }
 }
