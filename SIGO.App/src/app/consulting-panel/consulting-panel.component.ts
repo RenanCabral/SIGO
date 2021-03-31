@@ -12,20 +12,20 @@ export class ConsultingPanelComponent implements OnInit {
   updatedNorms: RegulatoryNorm[];
   regulatoryNormCategory: any[];
 
-  workSafetyNormsCount: number; 
-  environmentalNormsCount: number;
-  industrialNormsCount: number;
+  workSafetyNorms: any[]; 
+  environmentalNorms: any[]; 
+  industrialNorms: any[]; 
 
   constructor(private http: HttpClient) { 
 
     this.regulatoryNormCategory = new Array();
-    this.regulatoryNormCategory[0] = 'Segurança do Trabalho';
-    this.regulatoryNormCategory[1] = 'Ambiental';
-    this.regulatoryNormCategory[2] = 'Industrial';
+    this.regulatoryNormCategory['WorkSafety'] = 'Segurança do Trabalho';
+    this.regulatoryNormCategory['Environmental'] = 'Ambiental';
+    this.regulatoryNormCategory['Industrial'] = 'Industrial';
 
-    this.workSafetyNormsCount = 0; 
-    this.environmentalNormsCount = 0; 
-    this.industrialNormsCount = 0; 
+    this.workSafetyNorms = new Array(); 
+    this.environmentalNorms = new Array(); 
+    this.industrialNorms = new Array(); 
 
     this.updatedNorms = new Array();
     this.showNormsUpdates();
@@ -43,17 +43,33 @@ export class ConsultingPanelComponent implements OnInit {
     .subscribe((data: RegulatoryNorm[]) => this.readRegulatoryNorms(data));
   }
 
-  readRegulatoryNorms (retulatoryNorms : RegulatoryNorm[])
+  readRegulatoryNorms (retulatoryNorms : any[])
   {
-    this.updatedNorms = retulatoryNorms;
-    
-    this.workSafetyNormsCount = this.updatedNorms.filter(x => x.Category.toString() == 'WorkSafety').length;
-    this.environmentalNormsCount = this.updatedNorms.filter(x => x.Category.toString() == 'Environmental').length;
-    this.industrialNormsCount = this.updatedNorms.filter(x => x.Category.toString() == 'Industrial').length;
+    this.updatedNorms = retulatoryNorms
+  
+    this.workSafetyNorms = retulatoryNorms.filter(x => x.category == 'WorkSafety');
+    this.environmentalNorms = retulatoryNorms.filter(x => x.category == 'Environmental');
+    this.industrialNorms = retulatoryNorms.filter(x => x.category == 'Industrial');
   }
 
-  showNormsNotifcations() {
+  showNormsNotifcations (category : string) {
 
+    if (category === 'WorkSafety') {
+      this.updatedNorms = this.workSafetyNorms;
+    }
+
+    if (category === 'Environmental') {
+      this.updatedNorms = this.environmentalNorms;
+    }
+
+    if (category === 'Industrial') {
+      this.updatedNorms = this.industrialNorms;
+    }
+
+  }
+
+  newContract() {
+    window.location.href = '#/consulting';
   }
 
 }
