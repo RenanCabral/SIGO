@@ -39,7 +39,7 @@ namespace SIGO.Consulting.QueueConsumer.Messaging
                 }
             }
             
-            Thread.Sleep(1200);
+            Thread.Sleep(1500);
             return regulatoryNormUpdate;
         }
     }

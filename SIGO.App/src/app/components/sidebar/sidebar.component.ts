@@ -8,9 +8,9 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/industrial-processes', title: 'Processos Industriais',  icon:'settings', class: '' },  
-    { path: '/consulting', title: 'Consultorias e Assessorias',  icon: 'assessment', class: '' },
-    { path: '/regulatory-norms', title: 'Normas',  icon:'content_paste', class: '' }
+    { path: '/industrial-processes', title: 'Processos Industriais',  icon:'settings', class: '' },
+    { path: '/regulatory-norms', title: 'Normas',  icon:'content_paste', class: '' },
+    { path: '/consulting-panel', title: 'Consultorias e Assessorias',  icon: 'assessment', class: '' }
 ];
 
 @Component({

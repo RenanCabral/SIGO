@@ -16,7 +16,6 @@ export class TableListComponent implements OnInit {
   
   regulatoryNormCategory: any[];
   
-
   constructor(private http: HttpClient) { 
   
     this.regulatoryNormCategory = new Array();
@@ -24,6 +23,7 @@ export class TableListComponent implements OnInit {
     this.regulatoryNormCategory[1] = 'Ambiental';
     this.regulatoryNormCategory[2] = 'Industrial';
 
+    this.getNormsUpdates();
     this.showRegulatoryNorms();
   }
   
@@ -34,9 +34,17 @@ export class TableListComponent implements OnInit {
     return this.http.get('http://localhost:5000/RegulatoryNorms/GetAll');
   }
 
+  checkUpdates() {
+    return this.http.get('http://localhost:5000/RegulatoryNorms/CheckUpdates');
+  }
+
   showRegulatoryNorms()  {
     this.getRegulatoryNorms()
     .subscribe((data: RegulatoryNorm[]) => this.regulatoryNorms = data);
+  }
+
+  getNormsUpdates() {
+    this.checkUpdates().subscribe();
   }
 
 }

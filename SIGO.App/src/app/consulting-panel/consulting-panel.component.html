@@ -1,0 +1,121 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">content_copy</i>
+                        </div>
+                        <p class="card-category">Ambientais</p>
+                        <h3 class="card-title">{{ environmentalNormsCount }}
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons text-danger">warning</i>
+                            <a href="javascript:void(0)">Ver atualizações</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">content_copy</i>
+                        </div>
+                        <p class="card-category">Segurança do Trabalho</p>
+                        <h3 class="card-title">{{ workSafetyNormsCount }}
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons text-danger">warning</i>
+                            <a href="javascript:void(0)">Ver atualizações</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-primary card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">content_copy</i>
+                        </div>
+                        <p class="card-category">Industriais</p>
+                        <h3 class="card-title">{{ industrialNormsCount }}
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons text-danger">warning</i>
+                            <a href="javascript:void(0)">Ver atualizações</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <button mat-raised-button type="submit" class="btn btn-danger pull-right">Novo Contrato</button>
+                <div class="clearfix"></div>
+            </div>             
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                            <h4 class="card-title ">Normas Técnicas Regulatórias</h4>
+                            <p class="card-category">Relação de normas cumpridas ou não cumpridas</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        <th>
+                                            Código
+                                        </th>
+                                        <th>
+                                            Descrição
+                                        </th>
+                                        <th>
+                                          Publicação
+                                       </th>
+                                        <th>
+                                            Cumprida
+                                        </th>
+                                        <th>
+                                            Categoria
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let regulatoryNorm of updatedNorms">
+                                            <td>
+                                                {{regulatoryNorm.code}}
+                                            </td>
+                                            <td>
+                                              {{regulatoryNorm.description}}
+                                            </td>
+                                            <td>
+                                              {{regulatoryNorm.releaseDate | date:'dd/MM/yyyy'}}
+                                          </td>                                     
+                                            <td>
+                                              <span class="material-icons">{{ regulatoryNorm.isApplied === true ? 'check' : 'clear' }}</span>
+                                            </td>
+                                            <td>
+                                              {{ regulatoryNormCategory[regulatoryNorm.category]}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
