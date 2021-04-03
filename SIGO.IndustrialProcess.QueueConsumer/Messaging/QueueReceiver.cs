@@ -67,7 +67,7 @@ namespace SIGO.IndustrialProcess.QueueConsumer.Messaging
                     };
 
                     channel.BasicConsume(queue: "logistic", autoAck: true, consumer: consumer);
-                    Thread.Sleep(1500);
+                    Thread.Sleep(2000);
                 }
             }
             

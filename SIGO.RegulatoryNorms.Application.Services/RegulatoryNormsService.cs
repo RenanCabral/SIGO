@@ -2,6 +2,7 @@
 using SIGO.RegulatoryNorms.Application.Services.Messaging;
 using SIGO.RegulatoryNorms.Domain.Entities;
 using SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -67,6 +68,7 @@ namespace SIGO.RegulatoryNorms.Application.Services
                         if (storedRegulatoryNorm.Description != regulatoryNorm.Description)
                         {
                             storedRegulatoryNorm.Description = regulatoryNorm.Description;
+                            storedRegulatoryNorm.ReleaseDate = Convert.ToDateTime(regulatoryNorm.ReleaseDate);
                             await _regulatoryNormsRepository.UpdateAsync(storedRegulatoryNorm);
 
                             regulatoryNorm.Updated = true;

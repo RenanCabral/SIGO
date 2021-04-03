@@ -28,7 +28,8 @@ export class ConsultingPanelComponent implements OnInit {
     this.industrialNorms = new Array(); 
 
     this.updatedNorms = new Array();
-    this.showNormsUpdates();
+    
+    this.checkUpdates();
   }
 
   ngOnInit(): void {
@@ -72,4 +73,12 @@ export class ConsultingPanelComponent implements OnInit {
     window.location.href = '#/consulting';
   }
 
+  checkUpdates() {
+    this.checkNormsUpdates()
+    .subscribe((data: any) => this.showNormsUpdates());
+  }
+
+  checkNormsUpdates() {
+    return this.http.get('http://localhost:5000/RegulatoryNorms/CheckUpdates');
+  }
 }

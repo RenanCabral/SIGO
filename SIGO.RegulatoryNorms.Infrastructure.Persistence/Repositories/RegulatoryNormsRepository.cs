@@ -81,7 +81,16 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
                 releaseDate = regulatoryNorm.ReleaseDate
             };
 
-            await this.UnitOfWork.DbConnector.Connection.ExecuteAsync(sql, param);
+            try
+            {
+                await this.UnitOfWork.DbConnector.Connection.ExecuteAsync(sql, param);
+            }
+            catch (Exception ex)
+            {   
+                throw;
+            }
+
+            
         }
 
         public void Dispose()

@@ -1,5 +1,6 @@
 ﻿using SIGO.IndustrialProcess.DataContracts;
 using SIGO.IndustrialProcess.QueueConsumer.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +9,14 @@ namespace SIGO.IndustrialProcess.Application.Services.External
 {
     public class LogisticService : ILogisticService
     {
-        private static List<LogisticReportItem> _logisticReportData = new List<LogisticReportItem>();
+        private static List<LogisticReportItem> _logisticReportData = new List<LogisticReportItem>() { 
+            new LogisticReportItem() {
+                                       StartDate = Convert.ToDateTime("01/01/2021"), 
+                                       EndDate = Convert.ToDateTime("31/01/2021"),
+                                       Fuel = 179,
+                                       Charge = 270
+                                     }
+        };
 
         public LogisticService(IQueueReceiver queueReceiver)
         {

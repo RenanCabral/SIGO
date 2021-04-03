@@ -24,7 +24,7 @@ export class TableListComponent implements OnInit {
     this.regulatoryNormCategory[2] = 'Industrial';
 
     this.getNormsUpdates();
-    this.showRegulatoryNorms();
+    //this.showRegulatoryNorms();
   }
   
   ngOnInit() {
@@ -44,7 +44,12 @@ export class TableListComponent implements OnInit {
   }
 
   getNormsUpdates() {
-    this.checkUpdates().subscribe();
+    this.checkUpdates()
+    .subscribe((data: any) => this.showRegulatoryNorms() );
   }
+
+  // getNormsUpdates() {
+  //   this.checkUpdates().subscribe();
+  // }
 
 }
