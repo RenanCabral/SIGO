@@ -50,14 +50,15 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
 
         public async Task InsertAsync(RegulatoryNorm regulatoryNorm)
         {
-            var sql = @" INSERT INTO [dbo].[RegulatoryNorms] (Code, Description, Active, CategoryId) VALUES (@code, @description, @active, @categoryId)";
+            var sql = @" INSERT INTO [dbo].[RegulatoryNorms] (Code, Description, Active, CategoryId, ReleaseDate) VALUES (@code, @description, @active, @categoryId, @releaseDate)";
 
             var param = new
             {
                 code = regulatoryNorm.Code,
                 description = regulatoryNorm.Description,
                 active = true,
-                categoryId = Convert.ToInt32(regulatoryNorm.Category)
+                categoryId = Convert.ToInt32(regulatoryNorm.Category),
+                releaseDate = regulatoryNorm.ReleaseDate
             };
 
             await this.UnitOfWork.DbConnector.Connection.ExecuteAsync(sql, param);

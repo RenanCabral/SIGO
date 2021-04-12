@@ -84,8 +84,9 @@ namespace SIGO.RegulatoryNorms.Application.Services
                         var newRegulatoryNorm = new RegulatoryNorm()
                         {
                             Code = regulatoryNorm.Code,
-                            Description = regulatoryNorm.Description
-                        };
+                            Description = regulatoryNorm.Description,
+                            ReleaseDate = Convert.ToDateTime(regulatoryNorm.ReleaseDate)
+                    };
                         await _regulatoryNormsRepository.InsertAsync(newRegulatoryNorm);
 
                         updatedRegulatoryNormsList.Add(regulatoryNorm);

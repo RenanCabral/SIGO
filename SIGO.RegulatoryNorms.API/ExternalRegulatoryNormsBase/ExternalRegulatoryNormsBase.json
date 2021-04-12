@@ -1,7 +1,7 @@
 [
 	{
 		"Code": "0001",
-		"Description": "A seguinte norma regulatória na áreaa de segurança do trabalho, determina que os funcionários estejam com uso obrigatório de EPis.",
+		"Description": "A seguinte norma regulatória na área de segurança do trabalho, determina que os funcionários estejam com uso obrigatório de EPis.",
 		"ReleaseDate": "08/12/2020",
 		"DueDate": "01/04/2021",
 		"Category": "WorkSafety"
@@ -15,28 +15,28 @@
 	},
 	{
 		"Code": "0003",
-		"Description": "A seguinte norma regulatória na área ambiental, determina que o descarte de resíduos seja feito através de descarte seletivo.",
+		"Description": "Norma regulatória alterada 2",
 		"ReleaseDate": "01/02/2021",
 		"DueDate": "01/10/2021",
 		"Category": "Environmental"
 	},
 	{
 		"Code": "0004",
-		"Description": "A seguinte norma regulatória, na área ambiental, determina que o descarte de resíduos seja feito em aterro sanitário apropriado...",
-		"ReleaseDate": "01/02/2021",
-		"DueDate": "01/10/2021",
-		"Category": "Environmental"
-	},
-	{
-		"Code": "0005",
-		"Description": "A seguinte norma regulatóriaa, nas área industrial, aponta que o descarte de resíduos seja feito em aterro sanitário apropriado...",
+		"Description": "Norma regulatória alterada 1",
 		"ReleaseDate": "01/02/2021",
 		"DueDate": "01/10/2021",
 		"Category": "Environmental"
 	},
 	{
 		"Code": "0006",
-		"Description": "A seguinte norma regulatória, resíduos seja feito em aterro sanitário apropriado...",
+		"Description": "A seguinte norma regulatória, na área de segurança do trabalho, requer que os colaboradores estejam com uso de EPis em bom estado",
+		"ReleaseDate": "01/02/2021",
+		"DueDate": "01/10/2021",
+		"Category": "WorkSafety"
+	},
+	{
+		"Code": "0007",
+		"Description": "A seguinte norma regulatória, na área de segurança do trabalho, requer que os colaboradores estejam com uso de EPis em bom estado",
 		"ReleaseDate": "01/02/2021",
 		"DueDate": "01/10/2021",
 		"Category": "WorkSafety"
