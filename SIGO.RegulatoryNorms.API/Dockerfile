@@ -14,6 +14,8 @@ COPY ["SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj", "SIGO.Regulato
 COPY ["SIGO.RegulatoryNorms.Application.Services/SIGO.RegulatoryNorms.Application.Services.csproj", "SIGO.RegulatoryNorms.Application.Services/"]
 COPY ["SIGO.RegulatoryNorms.DataContract/SIGO.RegulatoryNorms.DataContracts.csproj", "SIGO.RegulatoryNorms.DataContracts/"]
 COPY ["SIGO.RegulatoryNorms.Infrastructure.CrossCutting/SIGO.RegulatoryNorms.Infrastructure.CrossCutting.csproj", "SIGO.RegulatoryNorms.Infrastructure.CrossCutting/"]
+
+CMD dotnet
 	
 RUN dotnet restore "SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj"
 COPY . .
