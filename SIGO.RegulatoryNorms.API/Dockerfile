@@ -21,7 +21,7 @@ WORKDIR "/src/SIGO.RegulatoryNorms.API"
 RUN dotnet build "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish -r linux-x64
+RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish -r linux-musl-x64
 
 FROM base AS final
 WORKDIR /app
