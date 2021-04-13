@@ -14,8 +14,6 @@ COPY ["SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj", "SIGO.Regulato
 COPY ["SIGO.RegulatoryNorms.Application.Services/SIGO.RegulatoryNorms.Application.Services.csproj", "SIGO.RegulatoryNorms.Application.Services/"]
 COPY ["SIGO.RegulatoryNorms.DataContract/SIGO.RegulatoryNorms.DataContracts.csproj", "SIGO.RegulatoryNorms.DataContracts/"]
 COPY ["SIGO.RegulatoryNorms.Infrastructure.CrossCutting/SIGO.RegulatoryNorms.Infrastructure.CrossCutting.csproj", "SIGO.RegulatoryNorms.Infrastructure.CrossCutting/"]
-
-CMD dotnet
 	
 RUN dotnet restore "SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj"
 COPY . .
@@ -23,9 +21,9 @@ WORKDIR "/src/SIGO.RegulatoryNorms.API"
 RUN dotnet build "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish -r linux-musl-x64
+RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish -r alpine.3.7-x64
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["/publish/SIGO.RegulatoryNorms.API.dll"]
+ENTRYPOINT ["dotnet", "SIGO.RegulatoryNorms.API.dll"]
