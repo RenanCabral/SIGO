@@ -26,4 +26,4 @@ RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "SIGO.RegulatoryNorms.API.dll"]
+ENTRYPOINT ["dotnet", "/publish/SIGO.RegulatoryNorms.API.dll"]
