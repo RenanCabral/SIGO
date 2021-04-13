@@ -21,9 +21,9 @@ WORKDIR "/src/SIGO.RegulatoryNorms.API"
 RUN dotnet build "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish -r linux-x64
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "/publish/SIGO.RegulatoryNorms.API.dll"]
+ENTRYPOINT ["dotnet", "SIGO.RegulatoryNorms.API.dll"]
