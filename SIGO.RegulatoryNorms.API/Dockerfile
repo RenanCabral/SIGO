@@ -18,12 +18,13 @@ COPY ["SIGO.RegulatoryNorms.Infrastructure.CrossCutting/SIGO.RegulatoryNorms.Inf
 RUN dotnet restore "SIGO.RegulatoryNorms.API/SIGO.RegulatoryNorms.API.csproj"
 COPY . .
 WORKDIR "/src/SIGO.RegulatoryNorms.API"
-RUN dotnet build "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/build
+RUN dotnet build "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/build -r alpine-x64
 
 FROM build AS publish
-RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish -r alpine.3.7-x64
+RUN dotnet publish "SIGO.RegulatoryNorms.API.csproj" -c Release -o /app/publish -r alpine-x64
 
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "SIGO.RegulatoryNorms.API.dll"]
+#CMD dotnet SIGO.RegulatoryNorms.API.dll
