@@ -1,7 +1,7 @@
 trigger:
   paths:
     include:
-      - 'SIGO.Consulting.API/SIGO.Consulting.API/*'
+      - 'SIGO.Consulting.API/*'
       - 'SIGO.Consulting.Application.Services/*'
       - 'SIGO.Consulting.DataContracts/*'
       - 'SIGO.Consulting.QueueConsumer/*'
@@ -10,7 +10,7 @@ trigger:
      - main
    
 pool:
-  vmImage: 'vs2017-win2016'
+  vmImage: 'ubuntu-latest'
    
 
 variables:

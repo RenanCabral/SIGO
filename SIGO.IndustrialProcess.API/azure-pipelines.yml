@@ -1,13 +1,20 @@
 trigger:
-
-- main
+  paths:
+    include:
+      - 'SIGO.IndustrialProcess.API/*'
+      - 'SIGO.IndustrialProcess.Application.Services/*'
+      - 'SIGO.IndustrialProcess.DataContracts/*'
+      - 'SIGO.IndustrialProcess.QueueConsumer/*'
+  branches:
+    include:
+     - main
    
 pool:
   vmImage: 'ubuntu-latest'
    
 
 variables:
-  imageName: 'sigo-regulatory-norms-api'
+  imageName: 'sigo-industrial-proccess-api'
   DOCKER_BUILDKIT: 0
     
 steps:
@@ -15,10 +22,10 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'Azure Container Registry'
-    repository: 'sigo-regulatorynorms-api'
+    repository: 'sigo-industrial-proccess-api'
     command: 'buildAndPush'
     buildContext: '$(Build.SourcesDirectory)'
-    Dockerfile: 'SIGO.RegulatoryNorms.API/Dockerfile'
+    Dockerfile: 'SIGO.IndustrialProcess.API/Dockerfile'
     tags: |
       $(Build.BuildId)
       latest
