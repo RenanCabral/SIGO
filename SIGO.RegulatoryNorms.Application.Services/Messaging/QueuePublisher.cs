@@ -10,20 +10,38 @@ namespace SIGO.RegulatoryNorms.Application.Services.Messaging
     {
         public void SendMessage(List<RegulatoryNormUpdate> regulatoryNormsUpdate)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
-
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
+            try
             {
-                channel.QueueDeclare(queue: "regulatory-norms",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
 
-                var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(regulatoryNormsUpdate));
 
-                channel.BasicPublish(exchange: "", routingKey: "regulatory-norms", basicProperties: null, body: body);
+                var factory = new ConnectionFactory()
+                {
+                    HostName = "52.173.145.178",
+                    Port = 5672,
+                    UserName = "RabbitMqUser",
+                    Password = "SBDLY2tSf99nxqC",
+                    VirtualHost = "/"
+                };
+
+                using (var connection = factory.CreateConnection())
+                using (var channel = connection.CreateModel())
+                {
+                    channel.QueueDeclare(queue: "regulatory-norms",
+                                         durable: false,
+                                         exclusive: false,
+                                         autoDelete: false,
+                                         arguments: null);
+
+                    var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(regulatoryNormsUpdate));
+
+                    channel.BasicPublish(exchange: "", routingKey: "regulatory-norms", basicProperties: null, body: body);
+                }
+
+            }
+            catch (System.Exception ex)
+            {
+
+                throw;
             }
         }
     }
