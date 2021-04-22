@@ -4,8 +4,6 @@ using SIGO.IndustrialProcess.Application.Services.External;
 using SIGO.IndustrialProcess.DataContracts;
 using System;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace SIGO.IndustrialProcess.API.Controllers
 {
@@ -21,6 +19,13 @@ namespace SIGO.IndustrialProcess.API.Controllers
 
         private readonly ILogisticService logisticService;
         private readonly ISAPClient sapClient;
+
+        [HttpGet]
+        [Route("Healthcheck")]
+        public IActionResult GetHealthcheckStatus()
+        {
+            return Ok("IndustrialProcess is Healthy");
+        }
 
         [HttpGet]
         [Route("GetLogisticReport")]

@@ -19,6 +19,13 @@ namespace SIGO.Consulting.API.Controllers
         private readonly IRegulatoryNormsService _regulatoryNormsService;
 
         [HttpGet]
+        [Route("Healthcheck")]
+        public IActionResult GetHealthcheckStatus()
+        {
+            return Ok("ConsultingController is Healthy");
+        }
+
+        [HttpGet]
         [Route("GetNormsUpdates")]
         public async Task<IActionResult> GetRegulatoryNormsUpdatesAsync()
         {
