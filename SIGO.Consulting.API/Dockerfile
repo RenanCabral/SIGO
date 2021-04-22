@@ -18,10 +18,10 @@ COPY ["SIGO.Consulting.QueueConsumer/SIGO.Consulting.QueueConsumer.csproj", "SIG
 RUN dotnet restore "SIGO.Consulting.API/SIGO.Consulting.API.csproj"
 COPY . .
 WORKDIR "/src/SIGO.Consulting.API"
-RUN dotnet build "SIGO.Consulting.API/SIGO.Consulting.API.csproj" -c Release -o /app/build -r alpine-x64
+RUN dotnet build "SIGO.Consulting.API.csproj" -c Release -o /app/build -r alpine-x64
 
 FROM build AS publish
-RUN dotnet publish "SIGO.Consulting.API/SIGO.Consulting.API.csproj" -c Release -o /app/publish -r alpine-x64
+RUN dotnet publish "SIGO.Consulting.API.csproj" -c Release -o /app/publish -r alpine-x64
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
 WORKDIR /app
