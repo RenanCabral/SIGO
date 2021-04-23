@@ -53,7 +53,7 @@ namespace SIGO.IndustrialProcess.QueueConsumer.Messaging
         {
             var regulatoryNormUpdate = new List<LogisticReportItem>();
 
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            var factory = new ConnectionFactory() { HostName = "52.173.145.178" };
             using (var connection = factory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())

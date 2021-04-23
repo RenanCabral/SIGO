@@ -14,14 +14,7 @@ namespace SIGO.Consulting.QueueConsumer.Messaging
         {
             var regulatoryNormUpdate = new List<RegulatoryNormUpdate>();
 
-            var factory = new ConnectionFactory()
-            {
-                HostName = "52.173.145.178",
-                Port = 5672,
-                UserName = "RabbitMqUser",
-                Password = "SBDLY2tSf99nxqC",
-                VirtualHost = "/"
-            };
+            var factory = new ConnectionFactory() { HostName = "52.173.145.178" };
 
             using (var connection = factory.CreateConnection())
             {
