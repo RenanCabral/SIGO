@@ -156,7 +156,7 @@ export class DashboardComponent implements OnInit {
   }
   
   getLogisticReportData() {
-    return this.http.get('http://localhost:5002/IndustrialProcess/GetLogisticReport');
+    return this.http.get('https://industrial-proccess-api.azurewebsites.net/IndustrialProcess/GetLogisticReport');
   }
 
   showRegulatoryNorms()  {

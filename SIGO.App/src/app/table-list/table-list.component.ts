@@ -31,11 +31,11 @@ export class TableListComponent implements OnInit {
   }
 
   getRegulatoryNorms() {
-    return this.http.get('http://localhost:5000/RegulatoryNorms/GetAll');
+    return this.http.get('https://regulatory-norms-api.azurewebsites.net/regulatorynorms/GetAll');
   }
 
   checkUpdates() {
-    return this.http.get('http://localhost:5000/RegulatoryNorms/CheckUpdates');
+    return this.http.get('https://regulatory-norms-api.azurewebsites.net/regulatorynorms/CheckUpdates');
   }
 
   showRegulatoryNorms()  {

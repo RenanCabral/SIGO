@@ -36,7 +36,7 @@ export class ConsultingPanelComponent implements OnInit {
   }
 
   getNormsUpdates() {
-    return this.http.get('http://localhost:5001/Consulting/GetNormsUpdates');
+    return this.http.get('https://consulting-api.azurewebsites.net/Consulting/GetNormsUpdates');
   }
 
   showNormsUpdates()  {
@@ -79,6 +79,6 @@ export class ConsultingPanelComponent implements OnInit {
   }
 
   checkNormsUpdates() {
-    return this.http.get('http://localhost:5000/RegulatoryNorms/CheckUpdates');
+    return this.http.get('https://regulatory-norms-api.azurewebsites.net/regulatorynorms/CheckUpdates');
   }
 }
