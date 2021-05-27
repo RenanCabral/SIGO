@@ -28,6 +28,21 @@ namespace SIGO.RegulatoryNorms.API.Controllers
         }
 
         [HttpGet]
+        [Route("healthcheck/rabbitmq/publish")]
+        public IActionResult GetRabbitMQHeakthCheckStatus()
+        {
+            try
+            {
+                this.regulatoryNormsService.PublishHealthCheckMessage();
+                return Ok("Message has been published successfuly.");
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult("Error to publish message " + ex.ToString());
+            }
+        }
+
+        [HttpGet]
         [Route("GetAll")]
         public async Task<IActionResult> GetAllAsync()
         {

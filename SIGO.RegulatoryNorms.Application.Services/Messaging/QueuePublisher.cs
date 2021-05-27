@@ -12,7 +12,14 @@ namespace SIGO.RegulatoryNorms.Application.Services.Messaging
         {
             try
             {
-                var factory = new ConnectionFactory() { HostName = "52.173.145.178" };
+                var factory = new ConnectionFactory()
+                {
+                    HostName = "23.99.191.64",
+                    UserName = "guest",
+                    Password = "guest",
+                    Port = 5672,
+                    VirtualHost = "/"
+                };
 
                 using (var connection = factory.CreateConnection())
                 using (var channel = connection.CreateModel())

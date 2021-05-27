@@ -9,5 +9,6 @@ namespace SIGO.RegulatoryNorms.Application.Services
         Task<List<DataContracts.RegulatoryNorm>> GetAllAsync();
         Task<List<DataContracts.RegulatoryNormUpdate>> CheckRegulatoryNormsUpdateAsync();
         Task<List<DataContracts.RegulatoryNorm>> GetNormsByFilterAsync(RegulatoryNormsFilter filter);
+        void PublishHealthCheckMessage();
     }
 }

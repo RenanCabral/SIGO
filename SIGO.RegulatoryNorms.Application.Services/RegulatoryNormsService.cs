@@ -43,6 +43,20 @@ namespace SIGO.RegulatoryNorms.Application.Services
             return await Task.FromResult(new List<DataContracts.RegulatoryNorm>());
         }
 
+        public void PublishHealthCheckMessage()
+        {
+            var healthCheckMessage = new List<DataContracts.RegulatoryNormUpdate>() {
+             new DataContracts.RegulatoryNormUpdate()
+             {
+                Code="0000", Description = "HealthCheckTest"
+             }
+            };
+
+            this._queuePublisher.SendMessage(healthCheckMessage);
+        }
+
+
+
         public async Task<List<DataContracts.RegulatoryNormUpdate>> CheckRegulatoryNormsUpdateAsync()
         {
 
@@ -86,7 +100,7 @@ namespace SIGO.RegulatoryNorms.Application.Services
                             Code = regulatoryNorm.Code,
                             Description = regulatoryNorm.Description,
                             ReleaseDate = Convert.ToDateTime(regulatoryNorm.ReleaseDate)
-                    };
+                        };
                         await _regulatoryNormsRepository.InsertAsync(newRegulatoryNorm);
 
                         updatedRegulatoryNormsList.Add(regulatoryNorm);

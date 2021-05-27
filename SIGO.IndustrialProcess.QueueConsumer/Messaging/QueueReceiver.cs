@@ -16,10 +16,10 @@ namespace SIGO.IndustrialProcess.QueueConsumer.Messaging
 
             var factory = new ConnectionFactory()
             {
-                HostName = "52.173.145.178",
+                HostName = "23.99.191.64",
                 Port = 5672,
-                UserName = "RabbitMqUser",
-                Password = "SBDLY2tSf99nxqC",
+                UserName = "guest",
+                Password = "guest",
                 VirtualHost = "/"
             };
             using (var connection = factory.CreateConnection())
@@ -53,7 +53,7 @@ namespace SIGO.IndustrialProcess.QueueConsumer.Messaging
         {
             var regulatoryNormUpdate = new List<LogisticReportItem>();
 
-            var factory = new ConnectionFactory() { HostName = "52.173.145.178" };
+            var factory = new ConnectionFactory() { HostName = "localhost" };
             using (var connection = factory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())
