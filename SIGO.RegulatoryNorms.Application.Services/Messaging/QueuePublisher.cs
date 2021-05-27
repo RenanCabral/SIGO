@@ -14,7 +14,7 @@ namespace SIGO.RegulatoryNorms.Application.Services.Messaging
             {
                 var factory = new ConnectionFactory()
                 {
-                    HostName = "23.99.191.64",
+                    HostName = "10.0.0.4",
                     UserName = "guest",
                     Password = "guest",
                     Port = 5672,
