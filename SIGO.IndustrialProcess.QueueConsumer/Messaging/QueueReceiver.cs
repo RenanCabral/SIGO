@@ -16,11 +16,11 @@ namespace SIGO.IndustrialProcess.QueueConsumer.Messaging
 
             var factory = new ConnectionFactory()
             {
-                HostName = "23.99.191.64",
+                HostName = "fly.rmq.cloudamqp.com",
+                UserName = "ajwmzqvb",
+                Password = "ez1ywHLbWgfaH3g9Jnb3vneb9h7hGQ24",
                 Port = 5672,
-                UserName = "guest",
-                Password = "guest",
-                VirtualHost = "/"
+                VirtualHost = "ajwmzqvb"
             };
             using (var connection = factory.CreateConnection())
             {
@@ -53,7 +53,13 @@ namespace SIGO.IndustrialProcess.QueueConsumer.Messaging
         {
             var regulatoryNormUpdate = new List<LogisticReportItem>();
 
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            var factory = new ConnectionFactory() {
+                HostName = "fly.rmq.cloudamqp.com",
+                UserName = "ajwmzqvb",
+                Password = "ez1ywHLbWgfaH3g9Jnb3vneb9h7hGQ24",
+                Port = 5672,
+                VirtualHost = "ajwmzqvb"
+            };
             using (var connection = factory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())

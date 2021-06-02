@@ -16,11 +16,11 @@ namespace SIGO.Consulting.QueueConsumer.Messaging
 
             var factory = new ConnectionFactory()
             {
-                HostName = "23.99.191.64",
-                UserName = "guest",
-                Password = "guest",
+                HostName = "fly.rmq.cloudamqp.com",
+                UserName = "ajwmzqvb",
+                Password = "ez1ywHLbWgfaH3g9Jnb3vneb9h7hGQ24",
                 Port = 5672,
-                VirtualHost = "/"
+                VirtualHost = "ajwmzqvb"
             };
 
             using (var connection = factory.CreateConnection())
