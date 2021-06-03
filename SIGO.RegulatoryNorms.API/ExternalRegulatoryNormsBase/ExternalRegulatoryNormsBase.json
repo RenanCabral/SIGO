@@ -1,44 +1,51 @@
 [
 	{
 		"Code": "0001",
-		"Description": "A seguinte norma regulatória na área de segurança do trabalho, determina que os funcionários estejam com uso obrigatório de EPis.",
+		"Description": "A seguinte normaa regulatória na área de segurança do trabalho, determina que todos os funcionários estejam com uso obrigatório de EPis.",
 		"ReleaseDate": "08/12/2020",
 		"DueDate": "01/04/2021",
 		"Category": "WorkSafety"
 	},
 	{
 		"Code": "0002",
-		"Description": "A seguinte norma regulatória na área industrial, determina que equimamentos industriais com mais de 20 anos de uso sejam vistoriados regularmente ...",
+		"Description": "A seguinte norma regulatória na área industrial, determina que equipamentos industriais com mais de 20 anos de uso sejam vistoriados regularmente ...",
 		"ReleaseDate": "11/12/2020",
 		"DueDate": "01/08/2021",
 		"Category": "Industrial"
 	},
 	{
 		"Code": "0003",
-		"Description": "Norma regulatória alterada 2",
+		"Description": "Norma regulatória ambiental alterada",
 		"ReleaseDate": "01/02/2021",
 		"DueDate": "01/10/2021",
 		"Category": "Environmental"
 	},
 	{
 		"Code": "0004",
-		"Description": "Norma regulatória alterada 321171",
+		"Description": "Norma regulatória ambiental modificadaa",
 		"ReleaseDate": "01/02/2021",
 		"DueDate": "01/10/2021",
 		"Category": "Environmental"
 	},
 	{
 		"Code": "0006",
-		"Description": "A seguinte norma regulatória, na área de segurança do trabalho, requer que os colaboradores estejam com uso de EPis em bom estado",
+		"Description": "A seguinte norma regulatória na área de segurança do trabalho requer que os colaboradores estejam com uso de EPis em bom estado",
 		"ReleaseDate": "01/02/2021",
 		"DueDate": "01/10/2021",
 		"Category": "WorkSafety"
 	},
 	{
 		"Code": "0007",
-		"Description": "A seguinte norma regulatóriaaa, na área de segurança do trabalho, requer que os colaboradores estejam com uso de EPis em bom estado",
+		"Description": "A seguinte norma regulatória, na área de segurança do trabalho, requer que os colaboradores estejam com uso de EPis em bom estado",
 		"ReleaseDate": "01/02/2021",
 		"DueDate": "01/10/2021",
 		"Category": "WorkSafety"
+	},
+	{
+		"Code": "0008",
+		"Description": "A seguinte norma regulatória na área industrial, determina que equipamentos com mais de 5 anos de uso sejam substituídos...",
+		"ReleaseDate": "11/12/2020",
+		"DueDate": "01/08/2021",
+		"Category": "Industrial"
 	}
 ]

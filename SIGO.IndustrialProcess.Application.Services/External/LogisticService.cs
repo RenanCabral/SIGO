@@ -11,8 +11,8 @@ namespace SIGO.IndustrialProcess.Application.Services.External
     {
         private static List<LogisticReportItem> _logisticReportData = new List<LogisticReportItem>() { 
             new LogisticReportItem() {
-                                       StartDate = Convert.ToDateTime("01/01/2021"), 
-                                       EndDate = Convert.ToDateTime("31/01/2021"),
+                                       StartDate = Convert.ToDateTime("2021-01-01"), 
+                                       EndDate = Convert.ToDateTime("2021-01-31"),
                                        Fuel = 179,
                                        Charge = 270
                                      }

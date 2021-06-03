@@ -83,6 +83,8 @@ namespace SIGO.RegulatoryNorms.Application.Services
                         {
                             storedRegulatoryNorm.Description = regulatoryNorm.Description;
                             storedRegulatoryNorm.ReleaseDate = Convert.ToDateTime(regulatoryNorm.ReleaseDate);
+                            storedRegulatoryNorm.Category = (Domain.Enums.RegulatoryNormCategory)Enum.Parse(typeof(Domain.Enums.RegulatoryNormCategory), regulatoryNorm.Category);
+
                             await _regulatoryNormsRepository.UpdateAsync(storedRegulatoryNorm);
 
                             regulatoryNorm.Updated = true;
@@ -99,7 +101,8 @@ namespace SIGO.RegulatoryNorms.Application.Services
                         {
                             Code = regulatoryNorm.Code,
                             Description = regulatoryNorm.Description,
-                            ReleaseDate = Convert.ToDateTime(regulatoryNorm.ReleaseDate)
+                            ReleaseDate = Convert.ToDateTime(regulatoryNorm.ReleaseDate),
+                            Category = (Domain.Enums.RegulatoryNormCategory)Enum.Parse(typeof(Domain.Enums.RegulatoryNormCategory), regulatoryNorm.Category)
                         };
                         await _regulatoryNormsRepository.InsertAsync(newRegulatoryNorm);
 
