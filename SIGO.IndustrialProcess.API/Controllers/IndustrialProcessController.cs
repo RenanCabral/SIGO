@@ -38,8 +38,7 @@ namespace SIGO.IndustrialProcess.API.Controllers
             }
             catch (System.Exception ex)
             {
-                return StatusCode(500, ex.Message);
-
+                return StatusCode(500, ex.ToString());
             }
         }
 
