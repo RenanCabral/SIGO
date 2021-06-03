@@ -45,7 +45,7 @@ namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
         {
             if (!disposedValue)
             {
-                if (disposing)
+                if (disposing && _dbConnector != null)
                 {
                     // TODO: dispose managed state (managed objects).
                     _dbConnector.Dispose();

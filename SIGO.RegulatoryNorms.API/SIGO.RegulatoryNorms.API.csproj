@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SIGO.Infrastructure.CrossCutting\SIGO.Infrastructure.CrossCutting.csproj" />
     <ProjectReference Include="..\SIGO.RegulatoryNorms.Application.Services\SIGO.RegulatoryNorms.Application.Services.csproj" />
     <ProjectReference Include="..\SIGO.RegulatoryNorms.DataContract\SIGO.RegulatoryNorms.DataContracts.csproj" />
     <ProjectReference Include="..\SIGO.RegulatoryNorms.Infrastructure.CrossCutting\SIGO.RegulatoryNorms.Infrastructure.CrossCutting.csproj" />

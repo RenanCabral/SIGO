@@ -2,6 +2,7 @@
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SIGO.IndustrialProcess.DataContracts;
+using SIGO.Infrastructure.CrossCutting;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -16,12 +17,13 @@ namespace SIGO.IndustrialProcess.QueueConsumer.Messaging
 
             var factory = new ConnectionFactory()
             {
-                HostName = "fly.rmq.cloudamqp.com",
-                UserName = "ajwmzqvb",
-                Password = "ez1ywHLbWgfaH3g9Jnb3vneb9h7hGQ24",
-                Port = 5672,
-                VirtualHost = "ajwmzqvb"
+                HostName = AppConfiguration.RabbitMqConfiguration.HostName,
+                UserName = AppConfiguration.RabbitMqConfiguration.UserName,
+                Password = AppConfiguration.RabbitMqConfiguration.Password,
+                Port = AppConfiguration.RabbitMqConfiguration.Port,
+                VirtualHost = AppConfiguration.RabbitMqConfiguration.VirtualHost
             };
+
             using (var connection = factory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())
@@ -53,13 +55,15 @@ namespace SIGO.IndustrialProcess.QueueConsumer.Messaging
         {
             var regulatoryNormUpdate = new List<LogisticReportItem>();
 
-            var factory = new ConnectionFactory() {
-                HostName = "fly.rmq.cloudamqp.com",
-                UserName = "ajwmzqvb",
-                Password = "ez1ywHLbWgfaH3g9Jnb3vneb9h7hGQ24",
-                Port = 5672,
-                VirtualHost = "ajwmzqvb"
+            var factory = new ConnectionFactory()
+            {
+                HostName = AppConfiguration.RabbitMqConfiguration.HostName,
+                UserName = AppConfiguration.RabbitMqConfiguration.UserName,
+                Password = AppConfiguration.RabbitMqConfiguration.Password,
+                Port = AppConfiguration.RabbitMqConfiguration.Port,
+                VirtualHost = AppConfiguration.RabbitMqConfiguration.VirtualHost
             };
+
             using (var connection = factory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())

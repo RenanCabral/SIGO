@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SIGO.Consulting.DataContracts\SIGO.Consulting.DataContracts.csproj" />
+    <ProjectReference Include="..\SIGO.Infrastructure.CrossCutting\SIGO.Infrastructure.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>

@@ -35,7 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Consulting.Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.Consulting.DataContracts", "SIGO.Consulting.DataContracts\SIGO.Consulting.DataContracts.csproj", "{177B5609-8CDD-426C-8C6C-0BAE3F67D547}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.IndustrialProcess.DataContracts", "SIGO.IndustrialProcess.DataContracts\SIGO.IndustrialProcess.DataContracts.csproj", "{9415A216-A436-47C9-81FF-937739E42F8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIGO.IndustrialProcess.DataContracts", "SIGO.IndustrialProcess.DataContracts\SIGO.IndustrialProcess.DataContracts.csproj", "{9415A216-A436-47C9-81FF-937739E42F8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Shared", "04 - Shared", "{2DAC1CE2-2AB0-4276-931C-25D142935673}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGO.Infrastructure.CrossCutting", "SIGO.Infrastructure.CrossCutting\SIGO.Infrastructure.CrossCutting.csproj", "{5501CD2B-9161-4059-9EFB-1767A5BED4C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +103,10 @@ Global
 		{9415A216-A436-47C9-81FF-937739E42F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9415A216-A436-47C9-81FF-937739E42F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9415A216-A436-47C9-81FF-937739E42F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5501CD2B-9161-4059-9EFB-1767A5BED4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5501CD2B-9161-4059-9EFB-1767A5BED4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5501CD2B-9161-4059-9EFB-1767A5BED4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5501CD2B-9161-4059-9EFB-1767A5BED4C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +126,7 @@ Global
 		{20AF9C69-8C13-48AC-B4E6-63F8CBC609E4} = {CF0BCC12-50FF-4196-8F1E-565F17ED7006}
 		{177B5609-8CDD-426C-8C6C-0BAE3F67D547} = {CF0BCC12-50FF-4196-8F1E-565F17ED7006}
 		{9415A216-A436-47C9-81FF-937739E42F8E} = {5B48DDD5-6064-4B96-96C7-546A29B72A2B}
+		{5501CD2B-9161-4059-9EFB-1767A5BED4C4} = {2DAC1CE2-2AB0-4276-931C-25D142935673}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72F0222E-4A76-42E0-AABA-748DD2E57477}

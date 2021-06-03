@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using SIGO.RegulatoryNorms.Infrastructure.CrossCutting;
+using SIGO.Infrastructure.CrossCutting;
 
 namespace SIGO.RegulatoryNorms.API
 {
@@ -28,7 +23,7 @@ namespace SIGO.RegulatoryNorms.API
                 });
 
         static void LoadConfiguration(HostBuilderContext ctx, IConfigurationBuilder config)
-        {   
+        {
             var env = ctx.HostingEnvironment;
 
             config
@@ -40,6 +35,14 @@ namespace SIGO.RegulatoryNorms.API
             Configuration = config.Build();
 
             AppConfiguration.ConnectionString = Configuration.GetValue<string>("Database:ConnectionString:SIGO");
+            AppConfiguration.RabbitMqConfiguration = new RabbitMqConfiguration()
+            {
+                HostName = Configuration.GetValue<string>("RabbitMq:HostName"),
+                UserName = Configuration.GetValue<string>("RabbitMq:UserName"),
+                Password = Configuration.GetValue<string>("RabbitMq:Password"),
+                VirtualHost = Configuration.GetValue<string>("RabbitMq:VirtualHost"),
+                Port = Configuration.GetValue<int>("RabbitMq:Port")
+            };
         }
     }
 }
