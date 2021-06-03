@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SIGO.Infrastructure.CrossCutting\SIGO.Infrastructure.CrossCutting.csproj" />
     <ProjectReference Include="..\SIGO.RegulatoryNorms.Domain\SIGO.RegulatoryNorms.Domain.csproj" />
     <ProjectReference Include="..\SIGO.RegulatoryNorms.Infrastructure.CrossCutting\SIGO.RegulatoryNorms.Infrastructure.CrossCutting.csproj" />
   </ItemGroup>

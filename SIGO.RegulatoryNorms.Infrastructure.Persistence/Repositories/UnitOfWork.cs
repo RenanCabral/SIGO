@@ -1,4 +1,4 @@
-﻿using SIGO.RegulatoryNorms.Infrastructure.CrossCutting;
+﻿using SIGO.Infrastructure.CrossCutting;
 using SIGO.RegulatoryNorms.Infrastructure.Persistence.Infrastructure;
 
 namespace SIGO.RegulatoryNorms.Infrastructure.Persistence.Repositories
